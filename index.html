@@ -214,17 +214,78 @@
         }
 
         /* Προσαρμογή για κινητά */
-    @media (max-width: 768px) {
-        .nav-categories {
-            grid-template-columns: 1fr;
-        }
-
-        .category-card {
-            height: 150px;
-        }
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
     }
 
-    /* Footer Styles */
+    .nav-categories {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .category-card {
+        height: 120px;
+    }
+
+    .category-card h2 {
+        font-size: 1.5em;
+    }
+
+    .menu-section {
+        padding: 15px;
+        margin: 10px 0;
+    }
+
+    .menu-item {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .menu-button {
+        padding: 15px 40px;
+        font-size: 1.2em;
+    }
+
+    .back-button {
+        padding: 8px 20px;
+        font-size: 1em;
+    }
+
+    .language-switcher {
+        top: 10px;
+        right: 10px;
+    }
+
+    .language-btn {
+        width: 25px;
+        height: 25px;
+    }
+
+    #menu-content {
+        width: 95%;
+        margin: 15px auto;
+    }
+}
+
+/* Για πολύ μικρές οθόνες */
+@media (max-width: 320px) {
+    body {
+        font-size: 12px;
+    }
+
+    .menu-button {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+
+    .category-card h2 {
+        font-size: 1.2em;
+    }
+}
+
+ /* Footer Styles */
 .footer {
     width: 100%;
     background: rgba(0, 0, 0, 0.8);
