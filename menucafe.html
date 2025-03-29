@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streeters Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Βασικά στυλ σελίδας */
+        body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, hsla(0, 0%, 27%, 0.5), rgba(39, 39, 39, 0.358)), 
+        url('./images/menu-bottom.jpg');  /* Έκανα το overlay πιο διάφανο */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        font-family: 'Poppins', sans-serif;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        /* Κεφαλίδα */
+        header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        /* Κουμπί μενού */
+        .menu-button {
+    background: linear-gradient(45deg, hsl(175, 100%, 40%), hsl(175, 100%, 40%));
+    color: white;
+    padding: 25px 80px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.6em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(32, 121, 209, 0.3);
+    margin: 20px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.menu-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(30, 144, 255, 0.5);
+    background: linear-gradient(45deg, hsl(175, 100%, 50%), hsl(175, 100%, 50%));
+}
+
+        /* Κατηγορίες */
+        .nav-categories {
+            display: none;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 40px;
+            max-width: 1000px;
+            width: 90%;
+            margin: 20px auto;
+            
+        }
+
+        /* Κάρτες κατηγοριών */
+        .category-card {
+            position: relative;
+            height: 200px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+
+        /* Κάρτες κατηγοριών - χρώματα */
+.category-card[onclick*="offers"] {
+    background: linear-gradient(45deg, #79797925, #79797925);
+}
+
+.category-card[onclick*="coffee"] {
+    background: linear-gradient(45deg, #79797925, #79797925);
+}
+
+.category-card[onclick*="beverages"] {
+    background: linear-gradient(45deg, #79797925, #79797925);
+}
+
+.category-card[onclick*="smoothies"] {
+    background: linear-gradient(45deg, #79797925, #79797925);
+}
+
+.category-card[onclick*="granita"] {
+    background: linear-gradient(45deg, #79797925, #79797925);
+}
+
+.category-card[onclick*="baguettes"] {
+    background: linear-gradient(45deg, #79797925, #79797925);
+}
+
+.category-card[onclick*="energy"] {
+    background: linear-gradient(45deg, #79797925, #79797925);
+}
+
+.category-card[onclick*="soft"] {
+    background: linear-gradient(45deg, #79797925, #79797925);
+}
+
+.category-card[onclick*="beer"] {
+    background: linear-gradient(45deg, #79797925, #79797925);
+}
+
+.category-card[onclick*="drinks"] {
+    background: linear-gradient(45deg, #79797925, #79797925);
+}
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-card:hover::before {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .category-card h2 {
+            position: relative;
+            z-index: 2;
+            color: white;
+            font-size: 2em;
+            text-align: center;
+            margin: 0;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Πλοήγηση πίσω */
+        .back-nav {
+            width: 100%;
+            padding: 20px;
+            display: none;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            background: rgba(28, 28, 28, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .back-button {
+            background: linear-gradient(45deg, #6f4e37, #a87554);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(111, 78, 55, 0.3);
+        }
+
+        /* Περιεχόμενο μενού */
+        #menu-content {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            display: none;
+        }
+
+        .menu-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px dotted rgba(111, 78, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            background: rgba(111, 78, 55, 0.05);
+            transform: translateX(10px);
+        }
+
+        /* Προσαρμογή για κινητά */
+    @media (max-width: 768px) {
+        .nav-categories {
+            grid-template-columns: 1fr;
+        }
+
+        .category-card {
+            height: 150px;
+        }
+    }
+
+    /* Footer Styles */
+.footer {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    gap: 40px;
+}
+
+.contact-info {
+    text-align: left;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #1e90ff;
+}
+
+.social-section {
+    text-align: right;
+}
+
+.social-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #aeb0b1;
+}
+
+.social-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #1e90ff;
+}
+
+.copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.developer-link {
+    display: block;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 0.75em;
+    text-align: center;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.developer-link:hover {
+    color: white;
+}
+
+/* Language Switcher Styles */
+.language-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.language-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    padding: 0;
+}
+
+.language-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.language-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <button class="menu-button" onclick="toggleMenu()">Menu</button>
+        </div>
+        <div class="language-switcher">
+            <button class="language-btn" onclick="changeLanguage('el')" title="Ελληνικά">
+                <img src="https://flagcdn.com/w40/gr.png" alt="Greek">
+            </button>
+            <button class="language-btn" onclick="changeLanguage('en')" title="English">
+                <img src="https://flagcdn.com/w40/gb.png" alt="English">
+            </button>
+            <button class="language-btn" onclick="changeLanguage('bg')" title="български">
+                <img src="https://flagcdn.com/w40/bg.png" alt="Bulgarian">
+            </button>
+        </div>
+    </header>
+
+    <div class="back-nav">
+        <button class="back-button" onclick="showCategories()">← Επιστροφή</button>
+    </div>
+
+    <div class="nav-categories" id="categories">
+        
+        <div class="category-card" onclick="showCategory('coffee')">
+            <h2>Καφέδες</h2>
+        </div>
+        <div class="category-card" onclick="showCategory('beverages')">
+            <h2>Ροφήματα</h2>
+        </div>
+        <div class="category-card" onclick="showCategory('smoothies')">
+            <h2>Smoothies</h2>
+        </div>
+        <div class="category-card" onclick="showCategory('granita')">
+            <h2>Γρανίτες</h2>
+        </div>
+        <div class="category-card" onclick="showCategory('baguettes')">
+            <h2>Μπαγκέτες</h2>
+        </div>
+        <div class="category-card" onclick="showCategory('energy')">
+            <h2>Energy drinks</h2>
+        </div>
+        <div class="category-card" onclick="showCategory('soft')">
+            <h2>Αναψυκτικά</h2>
+        </div>
+        <div class="category-card" onclick="showCategory('beer')">
+            <h2>Μπύρες / Ποτά</h2>
+        </div>
+        <div class="category-card" onclick="showCategory('drinks')">
+            <h2>Ποτά σε ποτήρι</h2>
+        </div>
+    </div>
+
+    <main id="menu-content">
+        <section class="menu-section" data-category="coffee">
+            <h2>Καφέδες</h2>
+            <div class="menu-item">
+                <div>Espresso</div>
+                <div>€1,70</div>
+            </div>
+            <div class="menu-item">
+                <div>Espresso lungo</div>
+                <div>€1,70</div>
+            </div>
+            <div class="menu-item">
+                <div>Espresso Americano</div>
+                <div>€1,70</div>
+            </div>
+            <div class="menu-item">
+                <div>Espresso macchiato</div>
+                <div>€1,70</div>
+            </div>
+            <div class="menu-item">
+                <div>Freddo espresso</div>
+                <div>€2,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Cappuccino</div>
+                <div>€1,80</div>
+            </div>
+            <div class="menu-item">
+                <div>Cappuccino latte</div>
+                <div>€1,80</div>
+            </div>
+            <div class="menu-item">
+                <div>Freddo cappuccino</div>
+                <div>€2,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Freddo cappuccino latte</div>
+                <div>€1,70</div>
+            </div>
+            <div class="menu-item">
+                <div>Nes (100% Arabica)</div>
+                <div>€1,70</div>
+            </div>
+            <div class="menu-item">
+                <div>Frappe (100% Arabica)</div>
+                <div>€1,70</div>
+            </div>
+            <div class="menu-item">
+                <div>Φίλτρου</div>
+                <div>€1,70</div>
+            </div>
+            <div class="menu-item">
+                <div>Ελληνικός</div>
+                <div>€1,50</div>
+            </div>
+        </section>
+       
+        <section class="menu-section" data-category="drinks">
+            <h2>Ποτά σε ποτήρι</h2>
+            <div class="menu-item">
+                <div>Whiskey σε ποτήρι</div>
+                <div>€4,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Rum σε ποτήρι</div>
+                <div>€4,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Jagermeister σε ποτήρι</div>
+                <div>€4,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Tequila σε ποτήρι</div>
+                <div>€4,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Gin σε ποτήρι</div>
+                <div>€4,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Vodka σε ποτήρι</div>
+                <div>€4,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Whiskey special σε ποτήρι</div>
+                <div>€5,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Τσίπουρο</div>
+                <div>€2,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Κρασί λευκό</div>
+                <div>€3,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Κρασί κόκκινο</div>
+                <div>€3,00</div>
+            </div>
+        </section>
+       
+        <section class="menu-section" data-category="beer">
+            <h2>Μπύρες / Ποτά</h2>
+            <div class="menu-item">
+                <div>Βεργίνα μπουκάλι 500ml</div>
+                <div>€2,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Βεργίνα μπουκάλι weiss 500ml</div>
+                <div>€2,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Άλφα μπουκάλι 500ml</div>
+                <div>€2,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Mythos μπουκάλι 500ml</div>
+                <div>€2,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Fix μπουκάλι 500ml</div>
+                <div>€2,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Άμστελ μπουκάλι 500ml</div>
+                <div>€2,50</div>
+            </div>
+        </section>
+       
+        <section class="menu-section" data-category="granita">
+            <h2>Γρανίτες</h2>
+            <div class="menu-item">
+                <div>Γρανίτα φράουλα</div>
+                <div>€3,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Γρανίτα ανανάς</div>
+                <div>€3,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Γρανίτα μήλο</div>
+                <div>€3,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Γρανίτα μάνγκο</div>
+                <div>€3,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Γρανίτα mix</div>
+                <div>€3,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Γρανίτα ρόδι</div>
+                <div>€3,00</div>
+            </div>
+        </section>
+       
+        <section class="menu-section" data-category="beverages">
+            <h2>Ροφήματα</h2>
+            <div class="menu-item">
+                <div>Mochaccino</div>
+                <div>€2,20</div>
+            </div>
+            <div class="menu-item">
+                <div>Σοκολάτα</div>
+                <div>€2,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Σοκολάτα Vienoua</div>
+                <div>€2,20</div>
+            </div>
+            <div class="menu-item">
+                <div>Τσάι</div>
+                <div>€1,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Σπιτική λεμονάδα</div>
+                <div>€1,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Milkshake σοκολάτα</div>
+                <div>€3,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Φυσικός χυμός πορτοκάλι</div>
+                <div>€2,30</div>
+            </div>
+        </section>
+
+        <section class="menu-section" data-category="soft">
+            <h2>Αναψυκτικά</h2>
+            <div class="menu-item">
+                <div>Coca-Cola 330ml</div>
+                <div>€1,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Coca-Cola light 330ml</div>
+                <div>€1,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Coca-Cola zero 330ml</div>
+                <div>€1,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Fanta πορτοκαλάδα με ανθρακικό 330ml</div>
+                <div>€1,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Fanta λεμόνι 330ml</div>
+                <div>€1,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Sprite 330ml</div>
+                <div>€1,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Σόδα 330ml</div>
+                <div>€1,50</div>
+            </div>
+            <div class="menu-item">
+                <div>Ice tea λεμόνι 330ml</div>
+                <div>€2,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Ice tea ροδάκινο 330ml</div>
+                <div>€2,00</div>
+            </div>
+            <div class="menu-item">
+                <div>
+                    <div>Ice tea πράσινο 330ml</div>
+                    <small style="color: #666; font-size: 0.9em;">Με άρωμα λεμονιού</small>
+                </div>
+                <div>€2,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Νερό 500ml</div>
+                <div>€0,50</div>
+            </div>
+        </section>
+
+        <section class="menu-section" data-category="baguettes">
+            <h2>Μπαγκέτες</h2>
+            <div class="menu-item">
+                <div style="text-align: center; width: 100%; color: #ff0000;">
+                    <div>Προσωρινά μη διαθέσιμο</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="menu-section" data-category="energy">
+            <h2>Energy drinks</h2>
+            <div class="menu-item">
+                <div>Red Bull 250ml</div>
+                <div>€2,50</div>
+            </div>
+        </section>
+        
+        <section class="menu-section" data-category="smoothies">
+            <h2>Smoothies</h2>
+            <div class="menu-item">
+                <div>Smoothie mango, ροδάκινο & ανανάς</div>
+                <div>€3,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Smoothie ανανάς, παπάγια & mango</div>
+                <div>€3,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Smoothie φράουλα, ροδάκινο & mango</div>
+                <div>€3,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Smoothie φράουλα, βατόμουρο & mango</div>
+                <div>€3,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Smoothie φράουλα, μύρτιλο, φραγκοστάφυλλο, μαύρο κεράσι & μούρο</div>
+                <div>€3,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Smoothie σπανάκι, καρότο, πορτοκάλι & ανανάς</div>
+                <div>€3,00</div>
+            </div>
+            <div class="menu-item">
+                <div>Smoothie καρύδα, ανανά & μπανάνα</div>
+                <div>€3,00</div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            const categories = document.getElementById('categories');
+            const menuButton = document.querySelector('.menu-button');
+            
+            if (categories.style.display === 'none' || categories.style.display === '') {
+                categories.style.display = 'grid';
+                menuButton.textContent = 'Close';
+            } else {
+                categories.style.display = 'none';
+                menuButton.textContent = 'Menu';
+            }
+        }
+
+        function showCategory(category) {
+            document.getElementById('categories').style.display = 'none';
+            document.getElementById('menu-content').style.display = 'block';
+            document.querySelector('.back-nav').style.display = 'flex';
+            document.querySelector('.menu-button').style.display = 'none';
+
+            document.querySelectorAll('.menu-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.querySelector(`[data-category="${category}"]`).style.display = 'block';
+        }
+
+        function showCategories() {
+            document.getElementById('menu-content').style.display = 'none';
+            document.getElementById('categories').style.display = 'grid';
+            document.querySelector('.back-nav').style.display = 'none';
+            document.querySelector('.menu-button').style.display = 'block';
+            document.querySelector('.menu-button').textContent = 'Menu';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('categories').style.display = 'none';
+            document.querySelector('.back-nav').style.display = 'none';
+        });
+        // Translations object
+    </script>
+    <script>
+    const translations = {
+    el: {
+        // Βασικά UI elements
+        menu: "Μενού",
+        close: "Κλείσιμο",
+        back: "← Επιστροφή",
+        
+        // Κατηγορίες
+        coffee: "Καφέδες",
+        beverages: "Ροφήματα",
+        smoothies: "Smoothies",
+        granita: "Γρανίτες",
+        baguettes: "Μπαγκέτες",
+        energy: "Energy drinks",
+        soft: "Αναψυκτικά",
+        beer: "Μπύρες / Ποτά",
+        drinks: "Ποτά σε ποτήρι",
+
+        // Τίτλοι τμημάτων
+        coffee_title: "Καφέδες",
+        beverages_title: "Ροφήματα",
+        smoothies_title: "Smoothies",
+        granita_title: "Γρανίτες",
+        baguettes_title: "Μπαγκέτες",
+        energy_title: "Energy drinks",
+        soft_title: "Αναψυκτικά",
+        beer_title: "Μπύρες / Ποτά",
+        drinks_title: "Ποτά σε ποτήρι",
+
+        // Καφέδες
+        coffee_items: {
+            "Espresso": "Espresso",
+            "Espresso lungo": "Espresso lungo",
+            "Espresso Americano": "Espresso Americano",
+            "Espresso macchiato": "Espresso macchiato",
+            "Freddo espresso": "Freddo espresso",
+            "Cappuccino": "Cappuccino",
+            "Cappuccino latte": "Cappuccino latte",
+            "Freddo cappuccino": "Freddo cappuccino",
+            "Freddo cappuccino latte": "Freddo cappuccino latte",
+            "Nes (100% Arabica)": "Nes (100% Arabica)",
+            "Frappe (100% Arabica)": "Frappe (100% Arabica)",
+            "Φίλτρου": "Φίλτρου",
+            "Ελληνικός": "Ελληνικός"
+        },
+
+        // Ροφήματα
+        beverages_items: {
+            "Mochaccino": "Mochaccino",
+            "Σοκολάτα": "Σοκολάτα",
+            "Σοκολάτα Vienoua": "Σοκολάτα Vienoua",
+            "Τσάι": "Τσάι",
+            "Σπιτική λεμονάδα": "Σπιτική λεμονάδα",
+            "Milkshake σοκολάτα": "Milkshake σοκολάτα",
+            "Φυσικός χυμός πορτοκάλι": "Φυσικός χυμός πορτοκάλι"
+        },
+
+        // Smoothies
+        smoothies_items: {
+            "Smoothie mango, ροδάκινο & ανανάς": "Smoothie mango, ροδάκινο & ανανάς",
+            "Smoothie ανανάς, παπάγια & mango": "Smoothie ανανάς, παπάγια & mango",
+            "Smoothie φράουλα, ροδάκινο & mango": "Smoothie φράουλα, ροδάκινο & mango",
+            "Smoothie φράουλα, βατόμουρο & mango": "Smoothie φράουλα, βατόμουρο & mango",
+            "Smoothie φράουλα, μύρτιλο, φραγκοστάφυλλο, μαύρο κεράσι & μούρο": "Smoothie φράουλα, μύρτιλο, φραγκοστάφυλλο, μαύρο κεράσι & μούρο",
+            "Smoothie σπανάκι, καρότο, πορτοκάλι & ανανάς": "Smoothie σπανάκι, καρότο, πορτοκάλι & ανανάς",
+            "Smoothie καρύδα, ανανά & μπανάνα": "Smoothie καρύδα, ανανά & μπανάνα"
+        },
+
+        // Γρανίτες
+        granita_items: {
+            "Γρανίτα φράουλα": "Γρανίτα φράουλα",
+            "Γρανίτα ανανάς": "Γρανίτα ανανάς",
+            "Γρανίτα μήλο": "Γρανίτα μήλο",
+            "Γρανίτα μάνγκο": "Γρανίτα μάνγκο",
+            "Γρανίτα mix": "Γρανίτα mix",
+            "Γρανίτα ρόδι": "Γρανίτα ρόδι"
+        },
+
+        // Μπαγκέτες
+        baguettes_items: {
+    "Προσωρινά μη διαθέσιμο": "Προσωρινά μη διαθέσιμο"
+        },
+
+        // Energy drinks
+        energy_items: {
+            "Red Bull 250ml": "Red Bull 250ml"
+        },
+
+        // Αναψυκτικά
+        soft_items: {
+            "Coca-Cola 330ml": "Coca-Cola 330ml",
+            "Coca-Cola light 330ml": "Coca-Cola light 330ml",
+            "Coca-Cola zero 330ml": "Coca-Cola zero 330ml",
+            "Fanta πορτοκαλάδα με ανθρακικό 330ml": "Fanta πορτοκαλάδα με ανθρακικό 330ml",
+            "Fanta λεμόνι 330ml": "Fanta λεμόνι 330ml",
+            "Sprite 330ml": "Sprite 330ml",
+            "Σόδα 330ml": "Σόδα 330ml",
+            "Ice tea λεμόνι 330ml": "Ice tea λεμόνι 330ml",
+            "Ice tea ροδάκινο 330ml": "Ice tea ροδάκινο 330ml",
+            "Ice tea πράσινο 330ml": "Ice tea πράσινο 330ml",
+            "green_tea_desc": "Με άρωμα λεμονιού",
+            "Νερό 500ml": "Νερό 500ml"
+        },
+
+        // Μπύρες
+        beer_items: {
+            "Βεργίνα μπουκάλι 500ml": "Βεργίνα μπουκάλι 500ml",
+            "Βεργίνα μπουκάλι weiss 500ml": "Βεργίνα μπουκάλι weiss 500ml",
+            "Άλφα μπουκάλι 500ml": "Άλφα μπουκάλι 500ml",
+            "Mythos μπουκάλι 500ml": "Mythos μπουκάλι 500ml",
+            "Fix μπουκάλι 500ml": "Fix μπουκάλι 500ml",
+            "Άμστελ μπουκάλι 500ml": "Άμστελ μπουκάλι 500ml"
+        },
+
+        // Ποτά σε ποτήρι
+        drinks_items: {
+            "Whiskey σε ποτήρι": "Whiskey σε ποτήρι",
+            "Rum σε ποτήρι": "Rum σε ποτήρι",
+            "Jagermeister σε ποτήρι": "Jagermeister σε ποτήρι",
+            "Tequila σε ποτήρι": "Tequila σε ποτήρι",
+            "Gin σε ποτήρι": "Gin σε ποτήρι",
+            "Vodka σε ποτήρι": "Vodka σε ποτήρι",
+            "Whiskey special σε ποτήρι": "Whiskey special σε ποτήρι",
+            "Τσίπουρο": "Τσίπουρο",
+            "Κρασί λευκό": "Κρασί λευκό",
+            "Κρασί κόκκινο": "Κρασί κόκκινο"
+        },
+
+        // Footer
+        address: "Διεύθυνση: Μιχαήλ Καραολή 50, Ξάνθη",
+        phone: "Τηλ: 2541 025432",
+        social: "Social",
+        developed: "Developed by mimisnak"
+    },
+
+    en: {
+        // Basic UI elements
+        menu: "Menu",
+        close: "Close",
+        back: "← Back",
+        
+        // Categories
+        offers: "Offers",
+        coffee: "Coffee",
+        beverages: "Beverages",
+        smoothies: "Smoothies",
+        granita: "Granita",
+        baguettes: "Baguettes",
+        energy: "Energy drinks",
+        soft: "Soft drinks",
+        beer: "Beer / Drinks",
+        drinks: "Glass drinks",
+
+        // Section titles
+        offers_title: "Offers",
+        coffee_title: "Coffee",
+        beverages_title: "Beverages",
+        smoothies_title: "Smoothies",
+        granita_title: "Granita",
+        baguettes_title: "Baguettes",
+        energy_title: "Energy drinks",
+        soft_title: "Soft drinks",
+        beer_title: "Beer / Drinks",
+        drinks_title: "Glass drinks",
+
+        // Coffee
+        coffee_items: {
+            "Espresso": "Espresso",
+            "Espresso lungo": "Espresso lungo",
+            "Espresso Americano": "Espresso Americano",
+            "Espresso macchiato": "Espresso macchiato",
+            "Freddo espresso": "Iced espresso",
+            "Cappuccino": "Cappuccino",
+            "Cappuccino latte": "Cappuccino latte",
+            "Freddo cappuccino": "Iced cappuccino",
+            "Freddo cappuccino latte": "Iced cappuccino latte",
+            "Nes (100% Arabica)": "Nescafe (100% Arabica)",
+            "Frappe (100% Arabica)": "Frappe (100% Arabica)",
+            "Φίλτρου": "Filter coffee",
+            "Ελληνικός": "Greek coffee"
+        },
+
+        // Beverages
+        beverages_items: {
+            "Mochaccino": "Mochaccino",
+            "Σοκολάτα": "Hot chocolate",
+            "Σοκολάτα Vienoua": "Vienna chocolate",
+            "Τσάι": "Tea",
+            "Σπιτική λεμονάδα": "Homemade lemonade",
+            "Milkshake σοκολάτα": "Chocolate milkshake",
+            "Φυσικός χυμός πορτοκάλι": "Fresh orange juice"
+        },
+
+        // Smoothies
+        smoothies_items: {
+            "Smoothie mango, ροδάκινο & ανανάς": "Mango, peach & pineapple smoothie",
+            "Smoothie ανανάς, παπάγια & mango": "Pineapple, papaya & mango smoothie",
+            "Smoothie φράουλα, ροδάκινο & mango": "Strawberry, peach & mango smoothie",
+            "Smoothie φράουλα, βατόμουρο & mango": "Strawberry, raspberry & mango smoothie",
+            "Smoothie φράουλα, μύρτιλο, φραγκοστάφυλλο, μαύρο κεράσι & μούρο": "Strawberry, blueberry, currant, black cherry & blackberry smoothie",
+            "Smoothie σπανάκι, καρότο, πορτοκάλι & ανανάς": "Spinach, carrot, orange & pineapple smoothie",
+            "Smoothie καρύδα, ανανά & μπανάνα": "Coconut, pineapple & banana smoothie"
+        },
+
+        // Granita
+        granita_items: {
+            "Γρανίτα φράουλα": "Strawberry granita",
+            "Γρανίτα ανανάς": "Pineapple granita",
+            "Γρανίτα μήλο": "Apple granita",
+            "Γρανίτα μάνγκο": "Mango granita",
+            "Γρανίτα mix": "Mix granita",
+            "Γρανίτα ρόδι": "Pomegranate granita"
+        },
+
+        // Baguettes
+       baguettes_items: {
+    "Προσωρινά μη διαθέσιμο": "Temporarily unavailable"
+        },
+
+        // Energy drinks
+        energy_items: {
+            "Red Bull 250ml": "Red Bull 250ml"
+        },
+
+        // Soft drinks
+        soft_items: {
+            "Coca-Cola 330ml": "Coca-Cola 330ml",
+            "Coca-Cola light 330ml": "Diet Coke 330ml",
+            "Coca-Cola zero 330ml": "Coca-Cola Zero 330ml",
+            "Fanta πορτοκαλάδα με ανθρακικό 330ml": "Fanta Orange 330ml",
+            "Fanta λεμόνι 330ml": "Fanta Lemon 330ml",
+            "Sprite 330ml": "Sprite 330ml",
+            "Σόδα 330ml": "Soda water 330ml",
+            "Ice tea λεμόνι 330ml": "Lemon ice tea 330ml",
+            "Ice tea ροδάκινο 330ml": "Peach ice tea 330ml",
+            "Ice tea πράσινο 330ml": "Green ice tea 330ml",
+            "green_tea_desc": "With lemon flavor",
+            "Νερό 500ml": "Water 500ml"
+        },
+
+        // Beer
+        beer_items: {
+            "Βεργίνα μπουκάλι 500ml": "Vergina beer 500ml",
+            "Βεργίνα μπουκάλι weiss 500ml": "Vergina weiss beer 500ml",
+            "Άλφα μπουκάλι 500ml": "Alfa beer 500ml",
+            "Mythos μπουκάλι 500ml": "Mythos beer 500ml",
+            "Fix μπουκάλι 500ml": "Fix beer 500ml",
+            "Άμστελ μπουκάλι 500ml": "Amstel beer 500ml"
+        },
+
+        // Glass drinks
+        drinks_items: {
+            "Whiskey σε ποτήρι": "Whiskey by the glass",
+            "Rum σε ποτήρι": "Rum by the glass",
+            "Jagermeister σε ποτήρι": "Jagermeister by the glass",
+            "Tequila σε ποτήρι": "Tequila by the glass",
+            "Gin σε ποτήρι": "Gin by the glass",
+            "Vodka σε ποτήρι": "Vodka by the glass",
+            "Whiskey special σε ποτήρι": "Special whiskey by the glass",
+            "Τσίπουρο": "Tsipouro",
+            "Κρασί λευκό": "White wine",
+            "Κρασί κόκκινο": "Red wine"
+        },
+
+        // Footer
+        address: "Address: Michail Karaoli 50, Xanthi",
+        phone: "Tel: 2541 025432",
+        social: "Social",
+        developed: "Developed by mimisnak"
+    },
+
+    bg: {
+        // Basic UI elements
+        menu: "Меню",
+        close: "Затвори",
+        back: "← Назад",
+        
+        // Categories
+        offers: "Оферти",
+        coffee: "Кафе",
+        beverages: "Напитки",
+        smoothies: "Смутита",
+        granita: "Гранита",
+        baguettes: "Багети",
+        energy: "Енергийни напитки",
+        soft: "Безалкохолни",
+        beer: "Бира / Напитки",
+        drinks: "Напитки в чаша",
+
+        // Section titles
+        offers_title: "Оферти",
+        coffee_title: "Кафе",
+        beverages_title: "Напитки",
+        smoothies_title: "Смутита",
+        granita_title: "Гранита",
+        baguettes_title: "Багети",
+        energy_title: "Енергийни напитки",
+        soft_title: "Безалкохолни",
+        beer_title: "Бира / Напитки",
+        drinks_title: "Напитки в чаша",
+
+        // Coffee
+        coffee_items: {
+            "Espresso": "Еспресо",
+            "Espresso lungo": "Еспресо лунго",
+            "Espresso Americano": "Американо",
+            "Espresso macchiato": "Еспресо макиато",
+            "Freddo espresso": "Студено еспресо",
+            "Cappuccino": "Капучино",
+            "Cappuccino latte": "Капучино лате",
+            "Freddo cappuccino": "Студено капучино",
+            "Freddo cappuccino latte": "Студено капучино лате",
+            "Nes (100% Arabica)": "Нескафе (100% Арабика)",
+            "Frappe (100% Arabica)": "Фрапе (100% Арабика)",
+            "Φίλτρου": "Филтърно кафе",
+            "Ελληνικός": "Гръцко кафе"
+        },
+
+        // Beverages
+        beverages_items: {
+            "Mochaccino": "Мокачино",
+            "Σοκολάτα": "Топъл шоколад",
+            "Σοκολάτα Vienoua": "Виенски шоколад",
+            "Τσάι": "Чай",
+            "Σπιτική λεμονάδα": "Домашна лимонада",
+            "Milkshake σοκολάτα": "Шоколадов милкшейк",
+            "Φυσικός χυμός πορτοκάλι": "Прясно изцеден портокал"
+        },
+
+        // Smoothies
+        smoothies_items: {
+            "Smoothie mango, ροδάκινο & ανανάς": "Смути с манго, праскова и ананас",
+            "Smoothie ανανάς, παπάγια & mango": "Смути с ананас, папая и манго",
+            "Smoothie φράουλα, ροδάκινο & mango": "Смути с ягода, праскова и манго",
+            "Smoothie φράουλα, βατόμουρο & mango": "Смути с ягода, малина и манго",
+            "Smoothie φράουλα, μύρτιλο, φραγκοστάφυλλο, μαύρο κεράσι & μούρο": "Смути с ягода, боровинка, касис, черна череша и къпина",
+            "Smoothie σπανάκι, καρότο, πορτοκάλι & ανανάς": "Смути със спанак, морков, портокал и ананас",
+            "Smoothie καρύδα, ανανά & μπανάνα": "Смути с кокос, ананас и банан"
+        },
+
+        // Granita
+        granita_items: {
+            "Γρανίτα φράουλα": "Гранита ягода",
+            "Γρανίτα ανανάς": "Гранита ананас",
+            "Γρανίτα μήλο": "Гранита ябълка",
+            "Γρανίτα μάνγκο": "Гранита манго",
+            "Γρανίτα mix": "Гранита микс",
+            "Γρανίτα ρόδι": "Гранита нар"
+        },
+
+        // Baguettes
+        baguettes_items: {
+    "Προσωρινά μη διαθέσιμο": "Временно недостъпно"
+        },
+
+        // Energy drinks
+        energy_items: {
+            "Red Bull 250ml": "Red Bull 250ml"
+        },
+
+        // Soft drinks
+        soft_items: {
+            "Coca-Cola 330ml": "Кока-Кола 330ml",
+            "Coca-Cola light 330ml": "Кока-Кола лайт 330ml",
+            "Coca-Cola zero 330ml": "Кока-Кола зеро 330ml",
+            "Fanta πορτοκαλάδα με ανθρακικό 330ml": "Фанта портокал 330ml",
+            "Fanta λεμόνι 330ml": "Фанта лимон 330ml",
+            "Sprite 330ml": "Спрайт 330ml",
+            "Σόδα 330ml": "Сода 330ml",
+            "Ice tea λεμόνι 330ml": "Леден чай лимон 330ml",
+            "Ice tea ροδάκινο 330ml": "Леден чай праскова 330ml",
+            "Ice tea πράσινο 330ml": "Зелен леден чай 330ml",
+            "green_tea_desc": "С лимонов аромат",
+            "Νερό 500ml": "Вода 500ml"
+        },
+
+        // Beer
+        beer_items: {
+            "Βεργίνα μπουκάλι 500ml": "Бира Вергина 500ml",
+            "Βεργίνα μπουκάλι weiss 500ml": "Бира Вергина вайс 500ml",
+            "Άλφα μπουκάλι 500ml": "Бира Алфа 500ml",
+            "Mythos μπουκάλι 500ml": "Бира Митос 500ml",
+            "Fix μπουκάλι 500ml": "Бира Фикс 500ml",
+            "Άμστελ μπουκάλι 500ml": "Бира Амстел 500ml"
+        },
+
+        // Glass drinks
+        drinks_items: {
+            "Whiskey σε ποτήρι": "Уиски на чаша",
+            "Rum σε ποτήρι": "Ром на чаша",
+            "Jagermeister σε ποτήρι": "Йегермайстер на чаша",
+            "Tequila σε ποτήρι": "Текила на чаша",
+            "Gin σε ποτήρι": "Джин на чаша",
+            "Vodka σε ποτήρι": "Водка на чаша",
+            "Whiskey special σε ποτήρι": "Специално уиски на чаша",
+            "Τσίπουρο": "Ципуро",
+            "Κρασί λευκό": "Бяло вино",
+            "Κρασί κόκκινο": "Червено вино"
+        },
+
+        // Footer
+        address: "Адрес: Михаил Караоли 50, Ксанти",
+        phone: "Тел: 2541 025432",
+        social: "Социални",
+        developed: "Разработено от mimisnak"
+    }
+};
+
+    let currentLang = 'el';
+
+    function toggleMenu() {
+        const categories = document.getElementById('categories');
+        const menuButton = document.querySelector('.menu-button');
+        
+        if (categories.style.display === 'none' || categories.style.display === '') {
+            categories.style.display = 'grid';
+            menuButton.textContent = translations[currentLang].close;
+        } else {
+            categories.style.display = 'none';
+            menuButton.textContent = translations[currentLang].menu;
+        }
+    }
+
+    function showCategory(category) {
+        document.getElementById('categories').style.display = 'none';
+        document.getElementById('menu-content').style.display = 'block';
+        document.querySelector('.back-nav').style.display = 'flex';
+        document.querySelector('.menu-button').style.display = 'none';
+
+        document.querySelectorAll('.menu-section').forEach(section => {
+            section.style.display = 'none';
+        });
+        document.querySelector(`[data-category="${category}"]`).style.display = 'block';
+    }
+
+    function showCategories() {
+        document.getElementById('menu-content').style.display = 'none';
+        document.getElementById('categories').style.display = 'grid';
+        document.querySelector('.back-nav').style.display = 'none';
+        document.querySelector('.menu-button').style.display = 'block';
+        document.querySelector('.menu-button').textContent = translations[currentLang].menu;
+    }
+
+    function changeLanguage(lang) {
+    currentLang = lang;
+    
+    // Update menu button
+    const menuButton = document.querySelector('.menu-button');
+    if (menuButton.textContent === 'Close' || menuButton.textContent === 'Κλείσιμο' || menuButton.textContent === 'Затвори') {
+        menuButton.textContent = translations[lang].close;
+    } else {
+        menuButton.textContent = translations[lang].menu;
+    }
+
+    // Update back button
+    const backButton = document.querySelector('.back-button');
+    if (backButton) {
+        backButton.textContent = translations[lang].back;
+    }
+
+    // Update category cards
+    document.querySelectorAll('.category-card h2').forEach(heading => {
+        const category = heading.parentElement.getAttribute('onclick').match(/'([^']+)'/)[1];
+        if (translations[lang][category]) {
+            heading.textContent = translations[lang][category];
+        }
+    });
+
+    // Update menu sections and items
+    document.querySelectorAll('.menu-section').forEach(section => {
+        const category = section.getAttribute('data-category');
+        
+        // Update section title
+        const titleElement = section.querySelector('h2');
+        if (titleElement && translations[lang][`${category}_title`]) {
+            titleElement.textContent = translations[lang][`${category}_title`];
+        }
+
+        // Update menu items
+        section.querySelectorAll('.menu-item').forEach(item => {
+            const nameDiv = item.querySelector('div:first-child');
+            if (!nameDiv) return;
+
+            // Get the original Greek text if not already stored
+            if (!nameDiv.dataset.original) {
+                nameDiv.dataset.original = nameDiv.textContent.trim();
+            }
+
+            const originalText = nameDiv.dataset.original;
+
+            // Check if item has description
+            if (nameDiv.children.length > 0) {
+                const titleDiv = nameDiv.querySelector('div');
+                const descDiv = nameDiv.querySelector('small');
+                
+                if (titleDiv) {
+                    if (!titleDiv.dataset.original) {
+                        titleDiv.dataset.original = titleDiv.textContent.trim();
+                    }
+                    const originalTitle = titleDiv.dataset.original;
+                    if (translations[lang][`${category}_items`]?.[originalTitle]) {
+                        titleDiv.textContent = translations[lang][`${category}_items`][originalTitle];
+                    }
+                }
+                
+                if (descDiv) {
+                    if (!descDiv.dataset.original) {
+                        descDiv.dataset.original = descDiv.textContent.trim();
+                    }
+                    const originalDesc = descDiv.dataset.original;
+                    const descKey = `${category}_desc`;
+                    if (translations[lang][`${category}_items`]?.[descKey]) {
+                        descDiv.textContent = translations[lang][`${category}_items`][descKey];
+                    }
+                }
+            } else {
+                // Simple item without description
+                if (translations[lang][`${category}_items`]?.[originalText]) {
+                    nameDiv.textContent = translations[lang][`${category}_items`][originalText];
+                }
+            }
+        });
+    });
+
+    // Update footer
+    document.querySelector('.contact-info a:first-child').textContent = translations[lang].address;
+    document.querySelector('.contact-info a:last-child').textContent = translations[lang].phone;
+    document.querySelector('.social-section h3').textContent = translations[lang].social;
+    document.querySelector('.developer-link').textContent = translations[lang].developed;
+
+    // Save language preference
+    localStorage.setItem('selectedLanguage', lang);
+}
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('categories').style.display = 'none';
+        document.querySelector('.back-nav').style.display = 'none';
+
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'el';
+        changeLanguage(savedLanguage);
+    });
+</script>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="contact-info">
+            <a href="https://www.google.com/maps/place/Cafebiker/@41.1368779,24.8872985,1147m/" target="_blank">
+                Διεύθυνση: Μιχαήλ Καραολή 50, Xánthi, Greece
+            </a>
+            <a href="tel:+302541025432">Τηλ: 2541 025432</a>
+        </div>
+        <div class="social-section">
+            <h3>Social</h3>
+            <div class="social-links">
+                <a href="https://www.instagram.com/streeters_karaoli_ave/" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/Vsverko/" target="_blank">Facebook</a>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2025 Streeters cafe. All rights reserved.
+    </div>
+    <a href="https://mimisnak.github.io/mimis.html/" target="_blank" class="developer-link">
+        Developed by mimisnak
+    </a>
+</footer>
+
+</body>
+</html>
