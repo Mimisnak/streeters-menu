@@ -3,8 +3,6 @@ body {
     margin: 0;
     min-height: 100vh;
     background: linear-gradient(to right, rgb(71, 71, 71) 0%, rgb(192, 255, 250) 20%, rgb(192, 255, 250) 80%, rgb(71, 71, 71) 100%);
-        /* url('./images/menu-bottom.jpg'); */
-    /* Έκανα το overlay πιο διάφανο */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -12,7 +10,7 @@ body {
     color: #333;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    position: relative; /* Προσθήκη */
 }
 
 /* Κεφαλίδα */
@@ -229,104 +227,104 @@ header {
     transform: translateX(10px);
 }
 
-.delivery-logo {
-    max-width:100%;
-    align-self: center;
+
+
+/* Delivery Styles */
+.delivery-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 400px; /* Αρχική θέση */
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.delivery-section h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.delivery-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .delivery-logo-container {
-    width: 120px;
-    height: 120px;
-    /* background-size: cover; */
+    width: 55px;
+    height: 55px;
     border-radius: 20%;
-    border-width: 2px;
-    border-style: solid;
-    border-color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
     background-color: rgb(235, 235, 235);
-    margin-right: 20px;
-    padding: 10px;
+    padding: 8px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-/* Προσαρμογή για κινητά */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
+.delivery-logo {
+    max-width: 100%;
+    height: auto;
+}
+.delivery-link {
+    text-decoration: none;
+    display: block;
+}
 
-    .nav-categories {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 15px;
-    }
+.delivery-link:hover .delivery-logo-container {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
 
-    .category-card {
-        margin-left: 10%;
-        margin-right: 10%;
-        height: 100px;
-    }
-
-    .category-card h2 {
-        font-size: 1.6em;
-    }
-
-    .menu-section {
-        padding: 15px;
-        margin: 10px 0;
-    }
-
-    .menu-item {
-        padding: 10px;
-        font-size: 0.9em;
-    }
-
-    .header-logo {
-        left: 1em;
-        width: 5em;
-        height: 5em;
-        border-width: 2px;
-    }
-
-    .nav-button {
-        padding: 15px 40px;
-        font-size: 1.2em;
-    }
-
-    .back-button {
-        padding: 8px 20px;
-        font-size: 1em;
-    }
-
-    .language-switcher {
-        /* top: 10px; */
-        right: 1em;
-    }
-
-    .language-btn {
-        width: 25px;
-        height: 25px;
-    }
-
-    #menu-content {
-        width: 95%;
-        margin: 15px auto;
+/* Media queries για delivery */
+@media screen and (min-width: 1024px) {
+    .delivery-section {
+        bottom: 250px; /* Μεγάλες οθόνες */
     }
 }
 
-/* Για πολύ μικρές οθόνες */
-@media (max-width: 320px) {
-    body {
-        font-size: 12px;
+@media screen and (max-width: 1023px) {
+    .delivery-section {
+        bottom: 250px; /* Μεσαίες οθόνες */
     }
+}
 
-    .nav-button {
-        padding: 12px 30px;
-        font-size: 1em;
+@media screen and (max-width: 768px) {
+    .delivery-section {
+        bottom: 250px; /* Ταμπλέτες */
     }
+    
+    .delivery-logo-container {
+        width: 50px;
+        height: 50px;
+        padding: 7px;
+    }
+}
 
-    .category-card h2 {
-        font-size: 1.2em;
+@media screen and (max-width: 480px) {
+    .delivery-section {
+        bottom: 250px; /* Μικρές οθόνες */
+    }
+    
+    .delivery-logo-container {
+        width: 45px;
+        height: 45px;
+        padding: 6px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .delivery-section {
+        bottom: 300px; /* Μικρές οθόνες */
+    }
+    
+    .delivery-logo-container {
+        width: 40px;
+        height: 40px;
+        padding: 5px;
     }
 }
 
@@ -336,7 +334,9 @@ header {
     background: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 20px 0;
-    margin-top: auto;
+    position: fixed; /* Αλλαγή σε fixed */
+    bottom: 0;      /* Προσθήκη */
+    left: 0;        /* Προσθήκη */
 }
 
 .footer-content {
@@ -389,8 +389,10 @@ header {
 }
 
 .main-menu {
+    flex: 1;
     margin: 50px 0;
     text-align: center;
+    padding-bottom: 200px; /* Προσθήκη χώρου για το footer */
 }
 
 .copyright {
