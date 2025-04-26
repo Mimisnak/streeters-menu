@@ -2,7 +2,7 @@ let currentLang = 'el';
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('categories').style.display = 'none';
+    
 
     currentLang = localStorage.getItem('selectedLanguage') || 'el';
     changeLanguage(currentLang);
@@ -12,31 +12,41 @@ document.addEventListener('DOMContentLoaded', () => {
 function toggleMenu() {
     const categories = document.getElementById('categories');
     const navButton = document.querySelector('.nav-button');
+    const menuContent = document.getElementById('menu-content');
     const mainMenu = document.querySelector('.main-menu');
 
-    if (categories.style.display === 'none' || categories.style.display === '') {
+    if (categories.classList.contains('hidden')) {
+        // Εμφάνιση κατηγοριών
+        categories.classList.remove('hidden');
         categories.style.display = 'grid';
-        mainMenu.style.display = 'none';
+        menuContent.style.display = 'none';
         navButton.textContent = translations[currentLang].close;
-
-        clearCategories();
     } else {
+        // Απόκρυψη κατηγοριών
+        categories.classList.add('hidden');
         categories.style.display = 'none';
-        mainMenu.style.display = 'block';
+        menuContent.style.display = 'none';
         navButton.textContent = translations[currentLang].menu;
     }
 }
 
-
 function showCategory(category) {
+    const categories = document.getElementById('categories');
     const navButton = document.querySelector('.nav-button');
+    const menuContent = document.getElementById('menu-content');
+
+    // Απόκρυψη κατηγοριών
+    categories.style.display = 'none';
+    categories.classList.add('hidden');
+
+    // Εμφάνιση περιεχομένου μενού
+    menuContent.style.display = 'block';
+    
+    // Ενημέρωση κουμπιού
     navButton.textContent = translations[currentLang].back;
 
-    document.getElementById('categories').style.display = 'none';
-    document.getElementById('menu-content').style.display = 'block';
-
+    // Εμφάνιση επιλεγμένης κατηγορίας
     clearCategories();
-
     document.querySelector(`[data-category="${category}"]`).style.display = 'block';
 }
 
