@@ -145,8 +145,9 @@ function changeLanguage(lang) {
     });
 
     // Update footer
-    document.querySelector('.contact-info a:first-child').textContent = translations[lang].address;
-    document.querySelector('.contact-info a:last-child').textContent = translations[lang].phone;
+    document.querySelector('#address-text').textContent = translations[lang].address;
+    // document.querySelector('.contact-info a:last-child').textContent = translations[lang].phone;
+    document.querySelector('.delivery-section h2').textContent = translations[lang].delivery;
     document.querySelector('.social-section h3').textContent = translations[lang].social;
     document.querySelector('.developer-link').textContent = translations[lang].developed;
 

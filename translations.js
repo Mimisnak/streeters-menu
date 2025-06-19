@@ -129,8 +129,8 @@ const translations = {
         },
 
         // Footer
-        address: "Διεύθυνση: Μιχαήλ Καραολή 50, Ξάνθη",
-        phone: "Τηλ: 2541 025432",
+        address: "Μιχαήλ Καραολή 50, Ξάνθη",
+        delivery: "Παράδοση",
         social: "Social",
         developed: "Developed by mimisnak"
     },
@@ -265,8 +265,8 @@ const translations = {
         },
 
         // Footer
-        address: "Address: Michail Karaoli 50, Xanthi",
-        phone: "Tel: 2541 025432",
+        address: "Michail Karaoli 50, Xanthi",
+        delivery: "Delivery",
         social: "Social",
         developed: "Developed by mimisnak"
     },
@@ -401,8 +401,8 @@ const translations = {
         },
 
         // Footer
-        address: "Адрес: Михаил Караоли 50, Ксанти",
-        phone: "Тел: 2541 025432",
+        address: "Михаил Караоли 50, Ксанти",
+        delivery: "Доставка",
         social: "Социални",
         developed: "Разработено от mimisnak"
     }
