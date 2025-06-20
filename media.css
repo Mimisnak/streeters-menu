@@ -1,0 +1,370 @@
+/* Mobile-First Responsive Design */
+/* Base styles (mobile first) */
+@media screen and (max-width: 480px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* Header adjustments */
+    .top-nav {
+        padding: 10px 5px;
+        height: 70px;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .header-logo {
+        left: 0.5em;
+        width: 3.5em;
+        height: 3.5em;
+        border-width: 2px;
+    }
+    
+    .nav-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+        border-radius: 20px;
+        margin: 0;
+        letter-spacing: 1px;
+    }
+    
+    /* Language switcher adjustments */
+    .language-switcher {
+        right: 0.5em;
+        top: 0.7em;
+        gap: 6px;
+    }
+    
+    .language-btn {
+        width: 20px;
+        height: 20px;
+        border-width: 1px;
+    }
+    
+    /* Main menu adjustments */
+    .main-menu {
+        padding: 10px 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Categories grid */
+    .nav-categories {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px 5px;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+    
+    .category-card {
+        height: 80px;
+        border-radius: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .category-card h2 {
+        font-size: 1.3em;
+    }
+    
+    /* Menu content */
+    #menu-content {
+        width: 100%;
+        margin: 15px 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    
+    .menu-section {
+        padding: 20px 10px;
+        margin: 15px 0;
+        border-radius: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .menu-section h2 {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+    }
+    
+    .menu-item {
+        padding: 15px 5px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .menu-item:hover {
+        transform: none;
+    }
+    
+    /* Footer adjustments */
+    .footer {
+        padding: 0.8em 0.5em;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-info a {
+        font-size: 0.8em;
+    }
+
+    .contact-info {
+        grid-template-columns: 1.2em 0.3em 1fr;
+        gap: 3px;
+        font-size: 0.75em;
+        width: 100%;
+    }
+    
+    .copyright {
+        font-size: 0.6em;
+        padding-top: 10px;
+        margin: 0;
+    }
+    
+    .developer-link {
+        font-size: 0.55em;
+        margin: 8px 0 0 0;
+    }
+    
+    .emoji {
+        font-size: 0.8em;
+    }
+
+    .emoji-dot {
+        font-size: 0.2em;
+    }
+    
+    /* Carousel adjustments */
+    .carousel {
+        margin-bottom: 10px;
+    }
+    
+    .carousel-item img {
+        height: 200px;
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 8%;
+    }
+}
+
+/* Small tablets */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .header-logo {
+        left: 1em;
+        width: 4.5em;
+        height: 4.5em;
+    }
+    
+    .nav-button {
+        padding: 15px 35px;
+        font-size: 1.3em;
+        border-radius: 25px;
+    }
+    
+    .language-switcher {
+        right: 1em;
+        top: 0.8em;
+        gap: 8px;
+    }
+    
+    .language-btn {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .nav-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        padding: 18px;
+        width: 92%;
+    }
+    
+    .category-card {
+        height: 100px;
+    }
+    
+    .category-card h2 {
+        font-size: 1.5em;
+    }
+    
+    /* Menu content */
+    #menu-content {
+        width: 100%;
+        margin: 15px 0;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .menu-section {
+        padding: 25px 20px;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1.5em 0.5em 1fr;
+        font-size: 0.85em;
+    }
+    
+    .footer {
+        padding: 1.2em;
+    }
+    
+    .copyright {
+        font-size: 0.7em;
+    }
+    
+    .developer-link {
+        font-size: 0.6em;
+    }
+    
+    .carousel-item img {
+        height: 250px;
+    }
+}
+
+/* Large tablets */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .header-logo {
+        left: 1.5em;
+        width: 5.5em;
+        height: 5.5em;
+    }
+    
+    .nav-button {
+        padding: 18px 45px;
+        font-size: 1.4em;
+    }
+    
+    .language-switcher {
+        right: 1.5em;
+        top: 0.9em;
+    }
+    
+    .nav-categories {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        width: 90%;
+    }
+    
+    .category-card {
+        height: 120px;
+    }
+    
+    .category-card h2 {
+        font-size: 1.7em;
+    }
+    
+    .contact-info {
+        font-size: 0.9em;
+    }
+    
+    .copyright {
+        font-size: 0.75em;
+    }
+    
+    .developer-link {
+        font-size: 0.65em;
+    }
+    
+    .carousel-item img {
+        height: 350px;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1025px) {
+    .nav-categories {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 320px) {
+    .header-logo {
+        width: 3em;
+        height: 3em;
+        left: 0.3em;
+    }
+    
+    .nav-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    
+    .language-switcher {
+        right: 0.3em;
+        top: 0.6em;
+        gap: 4px;
+    }
+    
+    .language-btn {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .main-menu {
+        padding: 5px;
+    }
+    
+    .nav-categories {
+        padding: 5px;
+    }
+    
+    #menu-content {
+        padding: 0 3px;
+    }
+    
+    .menu-section {
+        padding: 15px 8px;
+    }
+    
+    .category-card h2 {
+        font-size: 1.1em;
+    }
+    
+    .menu-item {
+        padding: 12px 5px;
+        font-size: 0.9em;
+    }
+    
+    .contact-info {
+        font-size: 0.7em;
+        grid-template-columns: 1em 0.2em 1fr;
+        gap: 2px;
+    }
+    
+    .footer {
+        padding: 0.6em 0.2em;
+    }
+    
+    .copyright {
+        font-size: 0.55em;
+        padding-top: 8px;
+    }
+    
+    .developer-link {
+        font-size: 0.5em;
+        margin: 6px 0 0 0;
+    }
+    
+    .emoji {
+        font-size: 0.9em;
+    }
+
+    .emoji-dot {
+        font-size: 0.25em;
+    }
+    
+    .carousel-item img {
+        height: 150px;
+    }
+}

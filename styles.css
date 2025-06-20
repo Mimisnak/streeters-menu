@@ -11,20 +11,25 @@ html, body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     color: #333;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 
 /* Main menu adjustments */
 .main-menu {
+    position: relative;
     flex: 1;
     display: flex;
     flex-direction: column;
     padding: 20px;
     margin-bottom: 0; /* Remove bottom margin since footer is no longer fixed */
+    backdrop-filter: 0;
+    transition: backdrop-filter 0.3s ease;
+    z-index: 2;
 }
 
 /* Κεφαλίδα */
@@ -77,6 +82,7 @@ header {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-family: "Dela Gothic One", sans-serif;
 }
 
 /* Language Switcher Styles */
@@ -192,6 +198,8 @@ header {
     z-index: 2;
     color: white;
     font-size: 2em;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
     text-align: center;
     margin: 0;
     position: absolute;
@@ -200,17 +208,6 @@ header {
     transform: translateY(-50%);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-/* .nav-button {
-    background: linear-gradient(45deg, #6f4e37, #a87554);
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
-} */
 
 .back-button:hover {
     transform: translateY(-2px);
@@ -251,64 +248,39 @@ header {
     transform: translateX(10px);
 }
 
-/* Media queries για delivery */
-@media screen and (min-width: 1024px) {
-    .delivery-section {
-        bottom: 250px; /* Μεγάλες οθόνες */
-    }
+#carousel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    overflow: hidden;
 }
 
-@media screen and (max-width: 1023px) {
-    .delivery-section {
-        bottom: 250px; /* Μεσαίες οθόνες */
-    }
+#carousel .carousel-inner,
+#carousel .carousel-item,
+#carousel img {
+    height: 100vh;
+    object-fit: cover;
+    z-index: 0;
 }
 
-@media screen and (max-width: 768px) {
-    .delivery-section {
-        bottom: 250px; /* Ταμπλέτες */
-    }
-    
-    .delivery-logo-container {
-        width: 50px;
-        height: 50px;
-        padding: 7px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .delivery-section {
-        bottom: 250px; /* Μικρές οθόνες */
-    }
-    
-    .delivery-logo-container {
-        width: 45px;
-        height: 45px;
-        padding: 6px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .delivery-section {
-        bottom: 300px; /* Μικρές οθόνες */
-    }
-    
-    .delivery-logo-container {
-        width: 40px;
-        height: 40px;
-        padding: 5px;
-    }
+#carousel-control-prev,
+#carousel-control-next {
+    z-index: 100;
 }
 
 /* Footer Styles */
 .footer {
-    padding: 1.5em;
+    padding: 1.2em;
     position: static;
     width: 100%;
     background: rgba(0, 0, 0, 0.9);
     z-index: 999;
     margin-top: auto;
     box-sizing: border-box;
+    backdrop-filter: blur(10px);
 }
 
 .footer-content {
@@ -319,10 +291,11 @@ header {
 
 .contact-info {
     display: grid;
-    grid-template-columns: 2em 1em 1fr;
+    grid-template-columns: 1.8em 0.8em 1fr;
     justify-content: strech;
     align-items: center;
     gap: 0px;
+    font-size: 0.9em;
 }
 
 .contact-info a {
@@ -338,9 +311,9 @@ header {
 
 .copyright {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
+    padding-top: 15px;
     text-align: center;
-    font-size: 0.8em;
+    font-size: 0.7em;
     color: rgba(255, 255, 255, 0.7);
 }
 
@@ -348,9 +321,9 @@ header {
     display: block;
     color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
-    font-size: 0.75em;
+    font-size: 0.65em;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .developer-link:hover {
@@ -358,10 +331,10 @@ header {
 }
 
 .language-btn {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 1px solid white;
     cursor: pointer;
     overflow: hidden;
     transition: transform 0.3s ease;
@@ -377,11 +350,18 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    vertical-align: top;
 }
 
 .emoji {
     color: white;
     font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.emoji-dot {
+    color: white;
+    font-size: 0.3em;
     transition: transform 0.3s ease;
 }
 
@@ -403,8 +383,8 @@ header {
 .footer .delivery-section {
     position:initial;
     width: 100%;
-    padding: 0 0 15px 0;
-    margin: 0 auto 10px auto;
+    padding: 0 0 10px 0;
+    margin: 0 auto 8px auto;
     background: none;
     border: none;
     display: flex;
@@ -416,16 +396,16 @@ header {
 .footer .delivery-icons {
     display: flex;
     justify-content: center;
-    gap: 18px;
+    gap: 15px;
 }
 
 .footer .delivery-logo-container {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 16%;
     border: 2px solid #fff;
     background-color: #222;
-    padding: 6px;
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -442,18 +422,4 @@ header {
     transform: scale(1.12);
     border-color: #1e90ff;
     background: #333;
-}
-
-@media (max-width: 600px) {
-    .footer .delivery-section h2 {
-        font-size: 1em;
-    }
-    .footer .delivery-logo-container {
-        width: 36px;
-        height: 36px;
-        padding: 4px;
-    }
-    .footer .delivery-icons {
-        gap: 10px;
-    }
 }

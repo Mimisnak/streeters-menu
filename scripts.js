@@ -14,18 +14,26 @@ function toggleMenu() {
     const navButton = document.querySelector('.nav-button');
     const menuContent = document.getElementById('menu-content');
     const mainMenu = document.querySelector('.main-menu');
+    const carouselPrev = document.querySelector('#carousel-control-prev');
+    const carouselNext = document.querySelector('#carousel-control-next');
 
     if (categories.classList.contains('hidden')) {
         // Εμφάνιση κατηγοριών
         categories.classList.remove('hidden');
         categories.style.display = 'grid';
         menuContent.style.display = 'none';
+        mainMenu.style.backdropFilter = 'blur(10px)';
+        carouselPrev.style.display = 'none';
+        carouselNext.style.display = 'none';
         navButton.textContent = translations[currentLang].close;
     } else {
         // Απόκρυψη κατηγοριών
         categories.classList.add('hidden');
         categories.style.display = 'none';
         menuContent.style.display = 'none';
+        mainMenu.style.backdropFilter = 'none';
+        carouselPrev.style.display = 'block';
+        carouselNext.style.display = 'block';
         navButton.textContent = translations[currentLang].menu;
     }
 }
@@ -146,9 +154,6 @@ function changeLanguage(lang) {
 
     // Update footer
     document.querySelector('#address-text').textContent = translations[lang].address;
-    // document.querySelector('.contact-info a:last-child').textContent = translations[lang].phone;
-    document.querySelector('.delivery-section h2').textContent = translations[lang].delivery;
-    document.querySelector('.social-section h3').textContent = translations[lang].social;
     document.querySelector('.developer-link').textContent = translations[lang].developed;
 
     // Save language preference
