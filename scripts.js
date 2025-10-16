@@ -134,7 +134,11 @@ function changeLanguage(lang) {
                         nestedDiv.dataset.originalEl = nestedDiv.textContent.trim();
                     }
                     const originalTitle = nestedDiv.dataset.originalEl;
-                    if (translations[lang][`${category}_items`]?.[originalTitle]) {
+                    
+                    // If language is Greek, restore original; otherwise translate
+                    if (lang === 'el') {
+                        nestedDiv.textContent = originalTitle;
+                    } else if (translations[lang][`${category}_items`]?.[originalTitle]) {
                         nestedDiv.textContent = translations[lang][`${category}_items`][originalTitle];
                     } else {
                         nestedDiv.textContent = originalTitle;
@@ -146,7 +150,11 @@ function changeLanguage(lang) {
                         nestedSmall.dataset.originalEl = nestedSmall.textContent.trim();
                     }
                     const originalDesc = nestedSmall.dataset.originalEl;
-                    if (translations[lang][`${category}_items`]?.[originalDesc]) {
+                    
+                    // If language is Greek, restore original; otherwise translate
+                    if (lang === 'el') {
+                        nestedSmall.textContent = originalDesc;
+                    } else if (translations[lang][`${category}_items`]?.[originalDesc]) {
                         nestedSmall.textContent = translations[lang][`${category}_items`][originalDesc];
                     } else if (translations[lang]?.descriptions?.[originalDesc]) {
                         nestedSmall.textContent = translations[lang].descriptions[originalDesc];
@@ -156,7 +164,9 @@ function changeLanguage(lang) {
                 }
             } else {
                 // Simple item - just translate the text directly
-                if (translations[lang][`${category}_items`]?.[originalText]) {
+                if (lang === 'el') {
+                    nameDiv.textContent = originalText;
+                } else if (translations[lang][`${category}_items`]?.[originalText]) {
                     nameDiv.textContent = translations[lang][`${category}_items`][originalText];
                 } else {
                     nameDiv.textContent = originalText;
@@ -171,7 +181,11 @@ function changeLanguage(lang) {
                         smallEl.dataset.originalEl = smallEl.textContent.trim();
                     }
                     const originalDesc = smallEl.dataset.originalEl;
-                    if (translations[lang]?.descriptions?.[originalDesc]) {
+                    
+                    // If language is Greek, restore original; otherwise translate
+                    if (lang === 'el') {
+                        smallEl.textContent = originalDesc;
+                    } else if (translations[lang]?.descriptions?.[originalDesc]) {
                         smallEl.textContent = translations[lang].descriptions[originalDesc];
                     } else {
                         smallEl.textContent = originalDesc;
@@ -191,7 +205,11 @@ function changeLanguage(lang) {
         const titleEl = syrupCard.querySelector('.syrup-title');
         if (titleEl) {
             if (!titleEl.dataset.originalEl) titleEl.dataset.originalEl = titleEl.textContent.trim();
-            if (translations[lang]?.syrup_info_title) {
+            
+            // If language is Greek, restore original; otherwise translate
+            if (lang === 'el') {
+                titleEl.textContent = titleEl.dataset.originalEl;
+            } else if (translations[lang]?.syrup_info_title) {
                 titleEl.textContent = translations[lang].syrup_info_title;
             } else {
                 titleEl.textContent = titleEl.dataset.originalEl;
@@ -201,7 +219,11 @@ function changeLanguage(lang) {
         syrupCard.querySelectorAll('.syrup-name').forEach(nameEl => {
             if (!nameEl.dataset.originalEl) nameEl.dataset.originalEl = nameEl.textContent.trim();
             const original = nameEl.dataset.originalEl;
-            if (translations[lang]?.syrup_items?.[original]) {
+            
+            // If language is Greek, restore original; otherwise translate
+            if (lang === 'el') {
+                nameEl.textContent = original;
+            } else if (translations[lang]?.syrup_items?.[original]) {
                 nameEl.textContent = translations[lang].syrup_items[original];
             } else {
                 nameEl.textContent = original;
