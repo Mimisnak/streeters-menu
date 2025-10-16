@@ -268,14 +268,14 @@ header {
     height: 100vh;
     z-index: 0;
     overflow: hidden;
-    background: #000000;
 }
 
 #carousel .carousel-inner,
 #carousel .carousel-item,
 #carousel img {
     height: 100vh;
-    object-fit: contain;
+    width: 100%;
+    object-fit: cover;
     z-index: 0;
 }
 
