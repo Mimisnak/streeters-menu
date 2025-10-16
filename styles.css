@@ -27,6 +27,7 @@ html, body {
     flex-direction: column;
     padding: 20px;
     margin-bottom: 0; /* Remove bottom margin since footer is no longer fixed */
+    -webkit-backdrop-filter: 0;
     backdrop-filter: 0;
     transition: backdrop-filter 0.3s ease;
     z-index: 2;
@@ -49,6 +50,7 @@ header {
     position: sticky;
     top: 0;
     background: linear-gradient(90deg, rgba(99, 99, 99, 0.9), rgba(28, 28, 28, 0.9), rgba(99, 99, 99, 0.9));
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     z-index: 1000;
 }
@@ -125,6 +127,7 @@ header {
     overflow: hidden;
     cursor: pointer;
     transition: all 0.3s ease;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 .hidden {
@@ -280,7 +283,21 @@ header {
     z-index: 999;
     margin-top: auto;
     box-sizing: border-box;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+}
+
+/* small muted note style used in menu */
+.muted-note {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* unavailable note styling */
+.unavailable-note {
+    text-align: center;
+    width: 100%;
+    color: #ff0000;
 }
 
 .footer-content {
