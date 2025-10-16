@@ -2,10 +2,15 @@ let currentLang = 'el';
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('selectedLanguage') || 'el';
     
-
-    currentLang = localStorage.getItem('selectedLanguage') || 'el';
-    changeLanguage(currentLang);
+    // Only call changeLanguage if the saved language is different from the default (el)
+    // This ensures originalEl captures the Greek text from HTML first
+    if (savedLang !== 'el') {
+        changeLanguage(savedLang);
+    } else {
+        currentLang = 'el';
+    }
 });
 
 
