@@ -40,8 +40,8 @@ const translations = {
             "Cappuccino latte": "Cappuccino latte",
             "Freddo cappuccino": "Freddo cappuccino",
             "Freddo cappuccino latte": "Freddo cappuccino latte",
-            "Nes (100% Arabica)": "Nes (100% Arabica)",
-            "Frappe (100% Arabica)": "Frappe (100% Arabica)",
+            "Nes": "Nes",
+            "Frappe": "Frappe",
             "Φίλτρου": "Φίλτρου",
             "Ελληνικός": "Ελληνικός"
         },
@@ -177,15 +177,15 @@ const translations = {
             "Espresso lungo": "Espresso lungo",
             "Espresso Americano": "Espresso Americano",
             "Espresso macchiato": "Espresso macchiato",
-            "Freddo espresso": "Iced espresso",
+            "Freddo espresso": "Freddo espresso",
             "Cappuccino": "Cappuccino",
             "Cappuccino latte": "Cappuccino latte",
-            "Freddo cappuccino": "Iced cappuccino",
-            "Freddo cappuccino latte": "Iced cappuccino latte",
-            "Nes (100% Arabica)": "Nescafe (100% Arabica)",
-            "Frappe (100% Arabica)": "Frappe (100% Arabica)",
+            "Freddo cappuccino": "Freddo cappuccino",
+            "Freddo cappuccino latte": "Freddo cappuccino latte",
+            "Nes": "Nes",
+            "Frappe": "Frappe",
             "Φίλτρου": "Filter coffee",
-            "Ελληνικός": "Greek coffee"
+            "Ελληνικός": "Ελληνικός"
         },
 
         // Syrups
