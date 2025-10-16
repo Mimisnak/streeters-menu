@@ -1,4 +1,4 @@
-let currentLang = 'el';
+﻿let currentLang = 'el';
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', () => {
@@ -235,4 +235,18 @@ function changeLanguage(lang) {
     localStorage.setItem('selectedLanguage', lang);
 
     currentLang = lang;
+}
+
+// Toggle tea flavors visibility
+function toggleTeaFlavors() {
+    const teaFlavors = document.getElementById('teaFlavors');
+    const btn = document.querySelector('.tea-flavors-btn');
+    
+    if (teaFlavors.style.display === 'none' || teaFlavors.style.display === '') {
+        teaFlavors.style.display = 'block';
+        btn.textContent = currentLang === 'el' ? 'Κρύψε τις γεύσεις' : 'Hide flavors';
+    } else {
+        teaFlavors.style.display = 'none';
+        btn.textContent = currentLang === 'el' ? 'Δες τις γεύσεις' : 'See flavors';
+    }
 }
