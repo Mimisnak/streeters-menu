@@ -259,6 +259,23 @@ function changeLanguage(lang) {
         }
     });
 
+    // Update subsection titles
+    const subsectionTitles = document.querySelectorAll('.subsection-title');
+    subsectionTitles.forEach(title => {
+        if (!title.dataset.originalEl) {
+            title.dataset.originalEl = title.textContent.trim();
+        }
+        const original = title.dataset.originalEl;
+        
+        if (lang === 'el') {
+            title.textContent = original;
+        } else if (translations[lang]?.subsection_titles?.[original]) {
+            title.textContent = translations[lang].subsection_titles[original];
+        } else {
+            title.textContent = original;
+        }
+    });
+
     // Save language preference
     localStorage.setItem('selectedLanguage', lang);
 

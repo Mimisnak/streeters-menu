@@ -59,7 +59,21 @@ const translations = {
             "καραμέλα: +0,30€ · φουντούκι: +0,30€ · φράουλα: +0,30€": "καραμέλα: +0,30€ · φουντούκι: +0,30€ · φράουλα: +0,30€",
             "Ζεστό/Κρύο": "Ζεστό/Κρύο",
             "Ζεστή/Κρύα": "Ζεστή/Κρύα",
-            "Γέυσεις: Fitness bio (διαίτης με τσουκνίδα, λεμονόχορτο, ιβίσκο & μείγμα βοτάνων mate) · Τσάι μαύρο με σοκολάτα · Τσάι μαύρο με κεράσι · Τσάι μαύρο με τριαντάφυλλο · Πράσινο · Πράσινο οριεντάλ (κανέλα, γαρύφαλλο, βερύκοκο, ginger & πιπεριά) · Φρούτα του δάσους · Μέντα · Μήλο & κανέλα · Φλαμούρι · Χαμομήλι · Χρυσό μήλο (μείγμα βοτάνων, χαμομήλι, παντζάρι, μήλο, κανέλα & αμύγδαλο) · Κόκκινη πλατεία (κομμάτια μήλου, άνθη ιβίσκου, cranberry)": "Γέυσεις: Fitness bio (διαίτης με τσουκνίδα, λεμονόχορτο, ιβίσκο & μείγμα βοτάνων mate) · Τσάι μαύρο με σοκολάτα · Τσάι μαύρο με κεράσι · Τσάι μαύρο με τριαντάφυλλο · Πράσινο · Πράσινο οριεντάλ (κανέλα, γαρύφαλλο, βερύκοκο, ginger & πιπεριά) · Φρούτα του δάσους · Μέντα · Μήλο & κανέλα · Φλαμούρι · Χαμομήλι · Χρυσό μήλο (μείγμα βοτάνων, χαμομήλι, παντζάρι, μήλο, κανέλα & αμύγδαλο) · Κόκκινη πλατεία (κομμάτια μήλου, άνθη ιβίσκου, cranberry)"
+            "Γέυσεις: Fitness bio (διαίτης με τσουκνίδα, λεμονόχορτο, ιβίσκο & μείγμα βοτάνων mate) · Τσάι μαύρο με σοκολάτα · Τσάι μαύρο με κεράσι · Τσάι μαύρο με τριαντάφυλλο · Πράσινο · Πράσινο οριεντάλ (κανέλα, γαρύφαλλο, βερύκοκο, ginger & πιπεριά) · Φρούτα του δάσους · Μέντα · Μήλο & κανέλα · Φλαμούρι · Χαμομήλι · Χρυσό μήλο (μείγμα βοτάνων, χαμομήλι, παντζάρι, μήλο, κανέλα & αμύγδαλο) · Κόκκινη πλατεία (κομμάτια μήλου, άνθη ιβίσκου, cranberry)": "Γέυσεις: Fitness bio (διαίτης με τσουκνίδα, λεμονόχορτο, ιβίσκο & μείγμα βοτάνων mate) · Τσάι μαύρο με σοκολάτα · Τσάι μαύρο με κεράσι · Τσάι μαύρο με τριαντάφυλλο · Πράσινο · Πράσινο οριεντάλ (κανέλα, γαρύφαλλο, βερύκοκο, ginger & πιπεριά) · Φρούτα του δάσους · Μέντα · Μήλο & κανέλα · Φλαμούρι · Χαμομήλι · Χρυσό μήλο (μείγμα βοτάνων, χαμομήλι, παντζάρι, μήλο, κανέλα & αμύγδαλο) · Κόκκινη πλατεία (κομμάτια μήλου, άνθη ιβίσκου, cranberry)",
+            "Γεννήθηκε στη Θεσσαλονίκη, αγαπήθηκε παντού! Το τέλειο σνακ για πρωινό, για δεκατιανό, για όταν πεινάς αλλά δεν θέλεις ούτε κάτι αλμυρό, ούτε κάτι γλυκό.": "Γεννήθηκε στη Θεσσαλονίκη, αγαπήθηκε παντού! Το τέλειο σνακ για πρωινό, για δεκατιανό, για όταν πεινάς αλλά δεν θέλεις ούτε κάτι αλμυρό, ούτε κάτι γλυκό.",
+            "Με καπνιστή γαλοπούλα, Philadelphia, σως Streeters & ντομάτα": "Με καπνιστή γαλοπούλα, Philadelphia, σως Streeters & ντομάτα",
+            "Με ζαμπόν, gouda, σως Streeters & ντομάτα": "Με ζαμπόν, gouda, σως Streeters & ντομάτα",
+            "Με σαλάμι αέρος, gouda, σως Streeters & ντομάτα": "Με σαλάμι αέρος, gouda, σως Streeters & ντομάτα",
+            "Με καπνιστή γαλοπούλα, μανούρι, σως Streeters & ντομάτα": "Με καπνιστή γαλοπούλα, μανούρι, σως Streeters & ντομάτα",
+            "Με στήθος κοτόπουλο, ζαμπόν, gouda, σως Streeters, ντομάτα & αγγούρι": "Με στήθος κοτόπουλο, ζαμπόν, gouda, σως Streeters, ντομάτα & αγγούρι",
+            "Με λευκό τυρί, πάστα ελιάς, ντομάτα, ρίγανη & αγγούρι": "Με λευκό τυρί, πάστα ελιάς, ντομάτα, ρίγανη & αγγούρι",
+            "Με καπνιστή γαλοπούλα, gouda, σως Streeters & λιαστή ντομάτα": "Με καπνιστή γαλοπούλα, gouda, σως Streeters & λιαστή ντομάτα",
+            "Με Philadelphia, καπνιστή γαλοπούλα, gouda, ντοματίνια & αγγούρι": "Με Philadelphia, καπνιστή γαλοπούλα, gouda, ντοματίνια & αγγούρι",
+            "Με Philadelphia, ωμοπλάτη, gouda, ντοματίνια & αγγούρι": "Με Philadelphia, ωμοπλάτη, gouda, ντοματίνια & αγγούρι",
+            "Με τόνο, gouda, mexican mix λαχανικά & cocktail sauce": "Με τόνο, gouda, mexican mix λαχανικά & cocktail sauce",
+            "Με στήθος κοτόπουλο, καλαμπόκι, gouda, σως Streeters, λάχανο & καρότο": "Με στήθος κοτόπουλο, καλαμπόκι, gouda, σως Streeters, λάχανο & καρότο",
+            "Τι είναι καλύτερο από ένα κρουασάν; Ένα κρουασάν σοκολάτας! Απόλαυσε κάθε μπουκιά, από αυτό το αγαπημένο σνακ.": "Τι είναι καλύτερο από ένα κρουασάν; Ένα κρουασάν σοκολάτας! Απόλαυσε κάθε μπουκιά, από αυτό το αγαπημένο σνακ.",
+            "Τι είναι καλύτερο από ένα κρουασάν; Ένα κρουασάν Bueno! Απόλαυσε κάθε μπουκιά, από αυτό το αγαπημένο σνακ.": "Τι είναι καλύτερο από ένα κρουασάν; Ένα κρουασάν Bueno! Απόλαυσε κάθε μπουκιά, από αυτό το αγαπημένο σνακ."
         },
 
         // Tea flavors
@@ -127,9 +141,35 @@ const translations = {
             "Γρανίτα ρόδι": "Γρανίτα ρόδι"
         },
 
-        // Μπαγκέτες
+        // Σνακ, Μπαγκέτες & Γλυκά
+        baguettes_title: "Σνακ, Μπαγκέτες & Γλυκά",
         baguettes_items: {
-            "Προσωρινά μη διαθέσιμο": "Προσωρινά μη διαθέσιμο"
+            "Κουλούρι στρόγγυλο": "Κουλούρι στρόγγυλο",
+            "Κουλούρι Bueno": "Κουλούρι Bueno",
+            "Κουλούρι πραλίνα φουντουκιού": "Κουλούρι πραλίνα φουντουκιού",
+            "Μπαγκέτα λευκή γαλοπούλα": "Μπαγκέτα λευκή γαλοπούλα",
+            "Μπαγκέτα λευκή ζαμπόν": "Μπαγκέτα λευκή ζαμπόν",
+            "Μπαγκέτα λευκή σαλάμι αέρος": "Μπαγκέτα λευκή σαλάμι αέρος",
+            "Μπαγκέτα λευκή μανούρι": "Μπαγκέτα λευκή μανούρι",
+            "Μπαγκέτα λευκή κοτόπουλο": "Μπαγκέτα λευκή κοτόπουλο",
+            "Μπαγκέτα ολικής άλεσης χωριάτικη": "Μπαγκέτα ολικής άλεσης χωριάτικη",
+            "Μπαγκέτα ολικής άλεσης γαλοπούλα": "Μπαγκέτα ολικής άλεσης γαλοπούλα",
+            "Ciabatta γαλοπούλα & Philadelphia": "Ciabatta γαλοπούλα & Philadelphia",
+            "Ciabatta ωμοπλάτη & Philadelphia": "Ciabatta ωμοπλάτη & Philadelphia",
+            "Ciabatta τόνος": "Ciabatta τόνος",
+            "Τορτίγια κοτόπουλο": "Τορτίγια κοτόπουλο",
+            "Κρουασάν σοκολάτα": "Κρουασάν σοκολάτα",
+            "Κρουασάν Bueno": "Κρουασάν Bueno",
+            "Brioche με πραλίνα Bueno": "Brioche με πραλίνα Bueno",
+            "Brioche με πραλίνα φουντουκιού": "Brioche με πραλίνα φουντουκιού"
+        },
+
+        subsection_titles: {
+            "Κουλούρια": "Κουλούρια",
+            "Μπαγκέτες": "Μπαγκέτες",
+            "Ciabatta": "Ciabatta",
+            "Τορτίγια": "Τορτίγια",
+            "Κρουασάν & Γλυκά": "Κρουασάν & Γλυκά"
         },
 
         // Energy drinks
@@ -242,7 +282,21 @@ const translations = {
             "καραμέλα: +0,30€ · φουντούκι: +0,30€ · φράουλα: +0,30€": "caramel: +0,30€ · hazelnut: +0,30€ · strawberry: +0,30€",
             "Ζεστό/Κρύο": "Hot/Cold",
             "Ζεστή/Κρύα": "Hot/Cold",
-            "Γέυσεις: Fitness bio (διαίτης με τσουκνίδα, λεμονόχορτο, ιβίσκο & μείγμα βοτάνων mate) · Τσάι μαύρο με σοκολάτα · Τσάι μαύρο με κεράσι · Τσάι μαύρο με τριαντάφυλλο · Πράσινο · Πράσινο οριεντάλ (κανέλα, γαρύφαλλο, βερύκοκο, ginger & πιπεριά) · Φρούτα του δάσους · Μέντα · Μήλο & κανέλα · Φλαμούρι · Χαμομήλι · Χρυσό μήλο (μείγμα βοτάνων, χαμομήλι, παντζάρι, μήλο, κανέλα & αμύγδαλο) · Κόκκινη πλατεία (κομμάτια μήλου, άνθη ιβίσκου, cranberry)": "Flavors: Fitness bio (diet with nettle, lemongrass, hibiscus & mate herbal blend) · Black tea with chocolate · Black tea with cherry · Black tea with rose · Green · Oriental green (cinnamon, clove, apricot, ginger & pepper) · Forest fruits · Mint · Apple & cinnamon · Linden · Chamomile · Golden apple (herbal blend, chamomile, beetroot, apple, cinnamon & almond) · Red square (apple pieces, hibiscus flowers, cranberry)"
+            "Γέυσεις: Fitness bio (διαίτης με τσουκνίδα, λεμονόχορτο, ιβίσκο & μείγμα βοτάνων mate) · Τσάι μαύρο με σοκολάτα · Τσάι μαύρο με κεράσι · Τσάι μαύρο με τριαντάφυλλο · Πράσινο · Πράσινο οριεντάλ (κανέλα, γαρύφαλλο, βερύκοκο, ginger & πιπεριά) · Φρούτα του δάσους · Μέντα · Μήλο & κανέλα · Φλαμούρι · Χαμομήλι · Χρυσό μήλο (μείγμα βοτάνων, χαμομήλι, παντζάρι, μήλο, κανέλα & αμύγδαλο) · Κόκκινη πλατεία (κομμάτια μήλου, άνθη ιβίσκου, cranberry)": "Flavors: Fitness bio (diet with nettle, lemongrass, hibiscus & mate herbal blend) · Black tea with chocolate · Black tea with cherry · Black tea with rose · Green · Oriental green (cinnamon, clove, apricot, ginger & pepper) · Forest fruits · Mint · Apple & cinnamon · Linden · Chamomile · Golden apple (herbal blend, chamomile, beetroot, apple, cinnamon & almond) · Red square (apple pieces, hibiscus flowers, cranberry)",
+            "Γεννήθηκε στη Θεσσαλονίκη, αγαπήθηκε παντού! Το τέλειο σνακ για πρωινό, για δεκατιανό, για όταν πεινάς αλλά δεν θέλεις ούτε κάτι αλμυρό, ούτε κάτι γλυκό.": "Born in Thessaloniki, loved everywhere! The perfect snack for breakfast, for a mid-morning bite, or when you're hungry but don't want anything salty or sweet.",
+            "Με καπνιστή γαλοπούλα, Philadelphia, σως Streeters & ντομάτα": "With smoked turkey, Philadelphia, Streeters sauce & tomato",
+            "Με ζαμπόν, gouda, σως Streeters & ντομάτα": "With ham, gouda, Streeters sauce & tomato",
+            "Με σαλάμι αέρος, gouda, σως Streeters & ντομάτα": "With salami, gouda, Streeters sauce & tomato",
+            "Με καπνιστή γαλοπούλα, μανούρι, σως Streeters & ντομάτα": "With smoked turkey, manouri, Streeters sauce & tomato",
+            "Με στήθος κοτόπουλο, ζαμπόν, gouda, σως Streeters, ντομάτα & αγγούρι": "With chicken breast, ham, gouda, Streeters sauce, tomato & cucumber",
+            "Με λευκό τυρί, πάστα ελιάς, ντομάτα, ρίγανη & αγγούρι": "With white cheese, olive paste, tomato, oregano & cucumber",
+            "Με καπνιστή γαλοπούλα, gouda, σως Streeters & λιαστή ντομάτα": "With smoked turkey, gouda, Streeters sauce & sun-dried tomato",
+            "Με Philadelphia, καπνιστή γαλοπούλα, gouda, ντοματίνια & αγγούρι": "With Philadelphia, smoked turkey, gouda, cherry tomatoes & cucumber",
+            "Με Philadelphia, ωμοπλάτη, gouda, ντοματίνια & αγγούρι": "With Philadelphia, shoulder, gouda, cherry tomatoes & cucumber",
+            "Με τόνο, gouda, mexican mix λαχανικά & cocktail sauce": "With tuna, gouda, mexican mix vegetables & cocktail sauce",
+            "Με στήθος κοτόπουλο, καλαμπόκι, gouda, σως Streeters, λάχανο & καρότο": "With chicken breast, corn, gouda, Streeters sauce, cabbage & carrot",
+            "Τι είναι καλύτερο από ένα κρουασάν; Ένα κρουασάν σοκολάτας! Απόλαυσε κάθε μπουκιά, από αυτό το αγαπημένο σνακ.": "What's better than a croissant? A chocolate croissant! Enjoy every bite of this favorite snack.",
+            "Τι είναι καλύτερο από ένα κρουασάν; Ένα κρουασάν Bueno! Απόλαυσε κάθε μπουκιά, από αυτό το αγαπημένο σνακ.": "What's better than a croissant? A Bueno croissant! Enjoy every bite of this favorite snack."
         },
 
         // Tea flavors English translations
@@ -310,9 +364,35 @@ const translations = {
             "Γρανίτα ρόδι": "Pomegranate granita"
         },
 
-        // Baguettes
+        // Snacks, Baguettes & Sweets
+        baguettes_title: "Snacks, Baguettes & Sweets",
         baguettes_items: {
-            "Προσωρινά μη διαθέσιμο": "Temporarily unavailable"
+            "Κουλούρι στρόγγυλο": "Round koulouri",
+            "Κουλούρι Bueno": "Bueno koulouri",
+            "Κουλούρι πραλίνα φουντουκιού": "Hazelnut praline koulouri",
+            "Μπαγκέτα λευκή γαλοπούλα": "White baguette turkey",
+            "Μπαγκέτα λευκή ζαμπόν": "White baguette ham",
+            "Μπαγκέτα λευκή σαλάμι αέρος": "White baguette salami",
+            "Μπαγκέτα λευκή μανούρι": "White baguette manouri",
+            "Μπαγκέτα λευκή κοτόπουλο": "White baguette chicken",
+            "Μπαγκέτα ολικής άλεσης χωριάτικη": "Whole wheat village baguette",
+            "Μπαγκέτα ολικής άλεσης γαλοπούλα": "Whole wheat turkey baguette",
+            "Ciabatta γαλοπούλα & Philadelphia": "Ciabatta turkey & Philadelphia",
+            "Ciabatta ωμοπλάτη & Philadelphia": "Ciabatta shoulder & Philadelphia",
+            "Ciabatta τόνος": "Ciabatta tuna",
+            "Τορτίγια κοτόπουλο": "Chicken tortilla",
+            "Κρουασάν σοκολάτα": "Chocolate croissant",
+            "Κρουασάν Bueno": "Bueno croissant",
+            "Brioche με πραλίνα Bueno": "Brioche with Bueno praline",
+            "Brioche με πραλίνα φουντουκιού": "Brioche with hazelnut praline"
+        },
+
+        subsection_titles: {
+            "Κουλούρια": "Koulouri",
+            "Μπαγκέτες": "Baguettes",
+            "Ciabatta": "Ciabatta",
+            "Τορτίγια": "Tortilla",
+            "Κρουασάν & Γλυκά": "Croissants & Sweets"
         },
 
         // Energy drinks

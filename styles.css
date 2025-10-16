@@ -237,6 +237,15 @@ header {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+.subsection-title {
+    color: #66c2ff;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 25px 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #66c2ff;
+}
+
 .menu-item {
     display: flex;
     justify-content: space-between;
