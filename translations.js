@@ -179,15 +179,17 @@ const translations = {
             "Coca-Cola 330ml": "Coca-Cola 330ml",
             "Coca-Cola light 330ml": "Coca-Cola light 330ml",
             "Coca-Cola zero 330ml": "Coca-Cola zero 330ml",
-            "Fanta πορτοκαλάδα με ανθρακικό 330ml": "Fanta πορτοκαλάδα με ανθρακικό 330ml",
-            "Fanta λεμόνι 330ml": "Fanta λεμόνι 330ml",
+            "Fanta πορτοκάλι 330ml": "Fanta πορτοκάλι 330ml",
+            "Fanta λεμονάδα 330ml": "Fanta λεμονάδα 330ml",
             "Sprite 330ml": "Sprite 330ml",
             "Σόδα 330ml": "Σόδα 330ml",
             "Ice tea λεμόνι 330ml": "Ice tea λεμόνι 330ml",
             "Ice tea ροδάκινο 330ml": "Ice tea ροδάκινο 330ml",
             "Ice tea πράσινο 330ml": "Ice tea πράσινο 330ml",
-            "green_tea_desc": "Με άρωμα λεμονιού",
-            "Νερό 500ml": "Νερό 500ml"
+            "Tuvunu με μέλι 330ml": "Tuvunu με μέλι 330ml",
+            "Νερό 500ml": "Νερό 500ml",
+            "Τσάι Arizona ρόδι 330ml": "Τσάι Arizona ρόδι 330ml",
+            "Τσάι Arizona πράσινο με μέλι 330ml": "Τσάι Arizona πράσινο με μέλι 330ml"
         },
 
         // Μπύρες
@@ -399,15 +401,17 @@ const translations = {
             "Coca-Cola 330ml": "Coca-Cola 330ml",
             "Coca-Cola light 330ml": "Diet Coke 330ml",
             "Coca-Cola zero 330ml": "Coca-Cola Zero 330ml",
-            "Fanta πορτοκαλάδα με ανθρακικό 330ml": "Fanta Orange 330ml",
-            "Fanta λεμόνι 330ml": "Fanta Lemon 330ml",
+            "Fanta πορτοκάλι 330ml": "Fanta Orange 330ml",
+            "Fanta λεμονάδα 330ml": "Fanta Lemonade 330ml",
             "Sprite 330ml": "Sprite 330ml",
             "Σόδα 330ml": "Soda water 330ml",
             "Ice tea λεμόνι 330ml": "Lemon ice tea 330ml",
             "Ice tea ροδάκινο 330ml": "Peach ice tea 330ml",
             "Ice tea πράσινο 330ml": "Green ice tea 330ml",
-            "green_tea_desc": "With lemon flavor",
-            "Νερό 500ml": "Water 500ml"
+            "Tuvunu με μέλι 330ml": "Tuvunu with honey 330ml",
+            "Νερό 500ml": "Water 500ml",
+            "Τσάι Arizona ρόδι 330ml": "Arizona Pomegranate tea 330ml",
+            "Τσάι Arizona πράσινο με μέλι 330ml": "Arizona Green tea with honey 330ml"
         },
 
         // Beer
