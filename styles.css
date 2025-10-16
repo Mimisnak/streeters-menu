@@ -308,7 +308,7 @@ header {
     padding: 14px 16px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     border: 1px solid rgba(30, 144, 255, 0.08);
-    border-left: 6px solid #ffb86b; /* warm accent */
+    border-left: 6px solid #66c2ff; /* light-blue accent */
 }
 .syrup-card .syrup-title {
     font-weight: 700;
@@ -325,13 +325,13 @@ header {
     align-items: center;
 }
 .syrup-price {
-    color: #ff6b6b;
+    color: #006fb3;
     font-weight: 700;
 }
 
 /* Icon next to syrup names */
 .syrup-icon {
-    color: #ff6b6b;
+    color: #006fb3;
     margin-right: 8px;
     font-size: 0.95em;
     vertical-align: middle;
