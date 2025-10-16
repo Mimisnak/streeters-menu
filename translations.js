@@ -71,9 +71,7 @@ const translations = {
             "Με Philadelphia, καπνιστή γαλοπούλα, gouda, ντοματίνια & αγγούρι": "Με Philadelphia, καπνιστή γαλοπούλα, gouda, ντοματίνια & αγγούρι",
             "Με Philadelphia, ωμοπλάτη, gouda, ντοματίνια & αγγούρι": "Με Philadelphia, ωμοπλάτη, gouda, ντοματίνια & αγγούρι",
             "Με τόνο, gouda, mexican mix λαχανικά & cocktail sauce": "Με τόνο, gouda, mexican mix λαχανικά & cocktail sauce",
-            "Με στήθος κοτόπουλο, καλαμπόκι, gouda, σως Streeters, λάχανο & καρότο": "Με στήθος κοτόπουλο, καλαμπόκι, gouda, σως Streeters, λάχανο & καρότο",
-            "Τι είναι καλύτερο από ένα κρουασάν; Ένα κρουασάν σοκολάτας! Απόλαυσε κάθε μπουκιά, από αυτό το αγαπημένο σνακ.": "Τι είναι καλύτερο από ένα κρουασάν; Ένα κρουασάν σοκολάτας! Απόλαυσε κάθε μπουκιά, από αυτό το αγαπημένο σνακ.",
-            "Τι είναι καλύτερο από ένα κρουασάν; Ένα κρουασάν Bueno! Απόλαυσε κάθε μπουκιά, από αυτό το αγαπημένο σνακ.": "Τι είναι καλύτερο από ένα κρουασάν; Ένα κρουασάν Bueno! Απόλαυσε κάθε μπουκιά, από αυτό το αγαπημένο σνακ."
+            "Με στήθος κοτόπουλο, καλαμπόκι, gouda, σως Streeters, λάχανο & καρότο": "Με στήθος κοτόπουλο, καλαμπόκι, gouda, σως Streeters, λάχανο & καρότο"
         },
 
         // Tea flavors
@@ -294,9 +292,7 @@ const translations = {
             "Με Philadelphia, καπνιστή γαλοπούλα, gouda, ντοματίνια & αγγούρι": "With Philadelphia, smoked turkey, gouda, cherry tomatoes & cucumber",
             "Με Philadelphia, ωμοπλάτη, gouda, ντοματίνια & αγγούρι": "With Philadelphia, shoulder, gouda, cherry tomatoes & cucumber",
             "Με τόνο, gouda, mexican mix λαχανικά & cocktail sauce": "With tuna, gouda, mexican mix vegetables & cocktail sauce",
-            "Με στήθος κοτόπουλο, καλαμπόκι, gouda, σως Streeters, λάχανο & καρότο": "With chicken breast, corn, gouda, Streeters sauce, cabbage & carrot",
-            "Τι είναι καλύτερο από ένα κρουασάν; Ένα κρουασάν σοκολάτας! Απόλαυσε κάθε μπουκιά, από αυτό το αγαπημένο σνακ.": "What's better than a croissant? A chocolate croissant! Enjoy every bite of this favorite snack.",
-            "Τι είναι καλύτερο από ένα κρουασάν; Ένα κρουασάν Bueno! Απόλαυσε κάθε μπουκιά, από αυτό το αγαπημένο σνακ.": "What's better than a croissant? A Bueno croissant! Enjoy every bite of this favorite snack."
+            "Με στήθος κοτόπουλο, καλαμπόκι, gouda, σως Streeters, λάχανο & καρότο": "With chicken breast, corn, gouda, Streeters sauce, cabbage & carrot"
         },
 
         // Tea flavors English translations
