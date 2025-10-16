@@ -268,12 +268,24 @@ header {
     height: 100vh;
     z-index: 0;
     overflow: hidden;
+    background: #1a1a1a;
 }
 
 #carousel .carousel-inner,
-#carousel .carousel-item,
-#carousel img {
+#carousel .carousel-item {
     height: 100vh;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a1a;
+}
+
+#carousel img {
+    max-height: 100vh;
+    max-width: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
     z-index: 0;
 }
