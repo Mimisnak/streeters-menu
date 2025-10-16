@@ -274,7 +274,7 @@ header {
 #carousel .carousel-item,
 #carousel img {
     height: 100vh;
-    object-fit: cover;
+    object-fit: contain;
     z-index: 0;
 }
 
