@@ -111,12 +111,12 @@ function changeLanguage(lang) {
             const nameDiv = item.querySelector('div:first-child');
             if (!nameDiv) return;
 
-            // Store original text for the main name div
-            if (!nameDiv.dataset.original) {
-                nameDiv.dataset.original = nameDiv.textContent.trim();
+            // Store original text for the main name div (only once, from Greek)
+            if (!nameDiv.dataset.originalEl) {
+                nameDiv.dataset.originalEl = nameDiv.textContent.trim();
             }
 
-            const originalText = nameDiv.dataset.original;
+            const originalText = nameDiv.dataset.originalEl;
 
             // Check if nameDiv has nested structure (div + small inside)
             const nestedDiv = nameDiv.querySelector('div');
@@ -125,30 +125,36 @@ function changeLanguage(lang) {
             if (nestedDiv || nestedSmall) {
                 // Complex structure with nested elements
                 if (nestedDiv) {
-                    if (!nestedDiv.dataset.original) {
-                        nestedDiv.dataset.original = nestedDiv.textContent.trim();
+                    if (!nestedDiv.dataset.originalEl) {
+                        nestedDiv.dataset.originalEl = nestedDiv.textContent.trim();
                     }
-                    const originalTitle = nestedDiv.dataset.original;
+                    const originalTitle = nestedDiv.dataset.originalEl;
                     if (translations[lang][`${category}_items`]?.[originalTitle]) {
                         nestedDiv.textContent = translations[lang][`${category}_items`][originalTitle];
+                    } else {
+                        nestedDiv.textContent = originalTitle;
                     }
                 }
 
                 if (nestedSmall) {
-                    if (!nestedSmall.dataset.original) {
-                        nestedSmall.dataset.original = nestedSmall.textContent.trim();
+                    if (!nestedSmall.dataset.originalEl) {
+                        nestedSmall.dataset.originalEl = nestedSmall.textContent.trim();
                     }
-                    const originalDesc = nestedSmall.dataset.original;
+                    const originalDesc = nestedSmall.dataset.originalEl;
                     if (translations[lang][`${category}_items`]?.[originalDesc]) {
                         nestedSmall.textContent = translations[lang][`${category}_items`][originalDesc];
                     } else if (translations[lang]?.descriptions?.[originalDesc]) {
                         nestedSmall.textContent = translations[lang].descriptions[originalDesc];
+                    } else {
+                        nestedSmall.textContent = originalDesc;
                     }
                 }
             } else {
                 // Simple item - just translate the text directly
                 if (translations[lang][`${category}_items`]?.[originalText]) {
                     nameDiv.textContent = translations[lang][`${category}_items`][originalText];
+                } else {
+                    nameDiv.textContent = originalText;
                 }
             }
 
@@ -156,12 +162,14 @@ function changeLanguage(lang) {
             const priceDiv = item.querySelector('div:nth-child(2)');
             if (priceDiv) {
                 priceDiv.querySelectorAll('small').forEach(smallEl => {
-                    if (!smallEl.dataset.original) {
-                        smallEl.dataset.original = smallEl.textContent.trim();
+                    if (!smallEl.dataset.originalEl) {
+                        smallEl.dataset.originalEl = smallEl.textContent.trim();
                     }
-                    const originalDesc = smallEl.dataset.original;
+                    const originalDesc = smallEl.dataset.originalEl;
                     if (translations[lang]?.descriptions?.[originalDesc]) {
                         smallEl.textContent = translations[lang].descriptions[originalDesc];
+                    } else {
+                        smallEl.textContent = originalDesc;
                     }
                 });
             }
@@ -177,17 +185,17 @@ function changeLanguage(lang) {
     if (syrupCard) {
         const titleEl = syrupCard.querySelector('.syrup-title');
         if (titleEl) {
-            if (!titleEl.dataset.original) titleEl.dataset.original = titleEl.textContent.trim();
+            if (!titleEl.dataset.originalEl) titleEl.dataset.originalEl = titleEl.textContent.trim();
             if (translations[lang]?.syrup_info_title) {
                 titleEl.textContent = translations[lang].syrup_info_title;
             } else {
-                titleEl.textContent = titleEl.dataset.original;
+                titleEl.textContent = titleEl.dataset.originalEl;
             }
         }
 
         syrupCard.querySelectorAll('.syrup-name').forEach(nameEl => {
-            if (!nameEl.dataset.original) nameEl.dataset.original = nameEl.textContent.trim();
-            const original = nameEl.dataset.original;
+            if (!nameEl.dataset.originalEl) nameEl.dataset.originalEl = nameEl.textContent.trim();
+            const original = nameEl.dataset.originalEl;
             if (translations[lang]?.syrup_items?.[original]) {
                 nameEl.textContent = translations[lang].syrup_items[original];
             } else {
