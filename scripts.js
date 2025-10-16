@@ -156,6 +156,30 @@ function changeLanguage(lang) {
     document.querySelector('#address-text').textContent = translations[lang].address;
     document.querySelector('.developer-link').textContent = translations[lang].developed;
 
+    // Update syrup card (if present)
+    const syrupCard = document.querySelector('.syrup-card');
+    if (syrupCard) {
+        const titleEl = syrupCard.querySelector('.syrup-title');
+        if (titleEl) {
+            if (!titleEl.dataset.original) titleEl.dataset.original = titleEl.textContent.trim();
+            if (translations[lang]?.syrup_info_title) {
+                titleEl.textContent = translations[lang].syrup_info_title;
+            } else {
+                titleEl.textContent = titleEl.dataset.original;
+            }
+        }
+
+        syrupCard.querySelectorAll('.syrup-name').forEach(nameEl => {
+            if (!nameEl.dataset.original) nameEl.dataset.original = nameEl.textContent.trim();
+            const original = nameEl.dataset.original;
+            if (translations[lang]?.syrup_items?.[original]) {
+                nameEl.textContent = translations[lang].syrup_items[original];
+            } else {
+                nameEl.textContent = original;
+            }
+        });
+    }
+
     // Save language preference
     localStorage.setItem('selectedLanguage', lang);
 
