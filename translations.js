@@ -65,17 +65,6 @@ const translations = {
             "Σιρόπι φράουλα": "Σιρόπι φράουλα"
         },
 
-        // Descriptions English translations
-        descriptions: {
-            "διπλός: 2,00€": "double: 2,00€",
-            "διπλός: 2,10€": "double: 2,10€",
-            "διπλός: 2,20€": "double: 2,20€",
-            "τριπλός: 2,50€ · τετραπλός: 3,00€": "triple: 2,50€ · quadruple: 3,00€",
-            "Με αφρόγαλα: 2,00€": "With foam milk: 2,00€",
-            "Με κρέμα: 2,50€": "With cream: 2,50€",
-            "καραμέλα: +0,30€ · φουντούκι: +0,30€ · φράουλα: +0,30€": "caramel: +0,30€ · hazelnut: +0,30€ · strawberry: +0,30€"
-        },
-
         // Ροφήματα
         beverages_items: {
             "Mochaccino": "Mochaccino",
