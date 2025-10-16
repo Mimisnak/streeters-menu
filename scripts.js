@@ -111,45 +111,59 @@ function changeLanguage(lang) {
             const nameDiv = item.querySelector('div:first-child');
             if (!nameDiv) return;
 
-            // Get the original Greek text if not already stored
+            // Store original text for the main name div
             if (!nameDiv.dataset.original) {
                 nameDiv.dataset.original = nameDiv.textContent.trim();
             }
 
             const originalText = nameDiv.dataset.original;
 
-            // Check if item has description
-            if (nameDiv.children.length > 0) {
-                const titleDiv = nameDiv.querySelector('div');
-                const descDiv = nameDiv.querySelector('small');
+            // Check if nameDiv has nested structure (div + small inside)
+            const nestedDiv = nameDiv.querySelector('div');
+            const nestedSmall = nameDiv.querySelector('small');
 
-                if (titleDiv) {
-                    if (!titleDiv.dataset.original) {
-                        titleDiv.dataset.original = titleDiv.textContent.trim();
+            if (nestedDiv || nestedSmall) {
+                // Complex structure with nested elements
+                if (nestedDiv) {
+                    if (!nestedDiv.dataset.original) {
+                        nestedDiv.dataset.original = nestedDiv.textContent.trim();
                     }
-                    const originalTitle = titleDiv.dataset.original;
+                    const originalTitle = nestedDiv.dataset.original;
                     if (translations[lang][`${category}_items`]?.[originalTitle]) {
-                        titleDiv.textContent = translations[lang][`${category}_items`][originalTitle];
+                        nestedDiv.textContent = translations[lang][`${category}_items`][originalTitle];
                     }
                 }
 
-                if (descDiv) {
-                    if (!descDiv.dataset.original) {
-                        descDiv.dataset.original = descDiv.textContent.trim();
+                if (nestedSmall) {
+                    if (!nestedSmall.dataset.original) {
+                        nestedSmall.dataset.original = nestedSmall.textContent.trim();
                     }
-                    const originalDesc = descDiv.dataset.original;
-                    // Try to find a direct translation for the small description text
+                    const originalDesc = nestedSmall.dataset.original;
                     if (translations[lang][`${category}_items`]?.[originalDesc]) {
-                        descDiv.textContent = translations[lang][`${category}_items`][originalDesc];
+                        nestedSmall.textContent = translations[lang][`${category}_items`][originalDesc];
                     } else if (translations[lang]?.descriptions?.[originalDesc]) {
-                        descDiv.textContent = translations[lang].descriptions[originalDesc];
+                        nestedSmall.textContent = translations[lang].descriptions[originalDesc];
                     }
                 }
             } else {
-                // Simple item without description
+                // Simple item - just translate the text directly
                 if (translations[lang][`${category}_items`]?.[originalText]) {
                     nameDiv.textContent = translations[lang][`${category}_items`][originalText];
                 }
+            }
+
+            // Also handle small tags in the price column (second div)
+            const priceDiv = item.querySelector('div:nth-child(2)');
+            if (priceDiv) {
+                priceDiv.querySelectorAll('small').forEach(smallEl => {
+                    if (!smallEl.dataset.original) {
+                        smallEl.dataset.original = smallEl.textContent.trim();
+                    }
+                    const originalDesc = smallEl.dataset.original;
+                    if (translations[lang]?.descriptions?.[originalDesc]) {
+                        smallEl.textContent = translations[lang].descriptions[originalDesc];
+                    }
+                });
             }
         });
     });
