@@ -25,7 +25,7 @@ const translations = {
         beverages_title: "Ροφήματα",
         smoothies_title: "Smoothies",
         granita_title: "Γρανίτες",
-        baguettes_title: "Μπαγκέτες",
+        baguettes_title: "Σνακ, Μπαγκέτες & Γλυκά",
         energy_title: "Energy drinks",
         soft_title: "Αναψυκτικά",
         beer_title: "Μπύρες / Ποτά",
@@ -140,7 +140,6 @@ const translations = {
         },
 
         // Σνακ, Μπαγκέτες & Γλυκά
-        baguettes_title: "Σνακ, Μπαγκέτες & Γλυκά",
         baguettes_items: {
             "Κουλούρι στρόγγυλο": "Κουλούρι στρόγγυλο",
             "Κουλούρι Bueno": "Κουλούρι Bueno",
@@ -246,7 +245,7 @@ const translations = {
         beverages_title: "Beverages",
         smoothies_title: "Smoothies",
         granita_title: "Granita",
-        baguettes_title: "Baguettes",
+        baguettes_title: "Snacks, Baguettes & Sweets",
         energy_title: "Energy drinks",
         soft_title: "Soft drinks",
         beer_title: "Beer / Drinks",
@@ -361,7 +360,6 @@ const translations = {
         },
 
         // Snacks, Baguettes & Sweets
-        baguettes_title: "Snacks, Baguettes & Sweets",
         baguettes_items: {
             "Κουλούρι στρόγγυλο": "Round koulouri",
             "Κουλούρι Bueno": "Bueno koulouri",
