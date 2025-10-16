@@ -46,6 +46,14 @@ const translations = {
             "Ελληνικός": "Ελληνικός"
         },
 
+        // Syrups
+        syrup_info_title: "Όλα τα σιρόπια χρεώνονται εξτρά +0,30€",
+        syrup_items: {
+            "Σιρόπι καραμέλα": "Σιρόπι καραμέλα",
+            "Σιρόπι φουντούκι": "Σιρόπι φουντούκι",
+            "Σιρόπι φράουλα": "Σιρόπι φράουλα"
+        },
+
         // Ροφήματα
         beverages_items: {
             "Mochaccino": "Mochaccino",
@@ -178,6 +186,14 @@ const translations = {
             "Frappe (100% Arabica)": "Frappe (100% Arabica)",
             "Φίλτρου": "Filter coffee",
             "Ελληνικός": "Greek coffee"
+        },
+
+        // Syrups
+        syrup_info_title: "All syrups are charged extra +0.30€",
+        syrup_items: {
+            "Σιρόπι καραμέλα": "Caramel syrup",
+            "Σιρόπι φουντούκι": "Hazelnut syrup",
+            "Σιρόπι φράουλα": "Strawberry syrup"
         },
 
         // Beverages
