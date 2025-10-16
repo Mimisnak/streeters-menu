@@ -138,9 +138,11 @@ function changeLanguage(lang) {
                         descDiv.dataset.original = descDiv.textContent.trim();
                     }
                     const originalDesc = descDiv.dataset.original;
-                    const descKey = `${category}_desc`;
-                    if (translations[lang][`${category}_items`]?.[descKey]) {
-                        descDiv.textContent = translations[lang][`${category}_items`][descKey];
+                    // Try to find a direct translation for the small description text
+                    if (translations[lang][`${category}_items`]?.[originalDesc]) {
+                        descDiv.textContent = translations[lang][`${category}_items`][originalDesc];
+                    } else if (translations[lang]?.descriptions?.[originalDesc]) {
+                        descDiv.textContent = translations[lang].descriptions[originalDesc];
                     }
                 }
             } else {
