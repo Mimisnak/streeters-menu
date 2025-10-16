@@ -199,12 +199,16 @@ const translations = {
 
         // Μπύρες
         beer_items: {
+            "Heineken 330ml": "Heineken 330ml",
+            "Amstel Radler lemon 330ml": "Amstel Radler lemon 330ml",
             "Βεργίνα μπουκάλι 500ml": "Βεργίνα μπουκάλι 500ml",
             "Βεργίνα μπουκάλι weiss 500ml": "Βεργίνα μπουκάλι weiss 500ml",
             "Άλφα μπουκάλι 500ml": "Άλφα μπουκάλι 500ml",
             "Mythos μπουκάλι 500ml": "Mythos μπουκάλι 500ml",
             "Fix μπουκάλι 500ml": "Fix μπουκάλι 500ml",
-            "Άμστελ μπουκάλι 500ml": "Άμστελ μπουκάλι 500ml"
+            "Amstel μπουκάλι 500ml": "Amstel μπουκάλι 500ml",
+            "Βεργίνα red 330ml": "Βεργίνα red 330ml",
+            "Βεργίνα Πορφύρα 330ml": "Βεργίνα Πορφύρα 330ml"
         },
 
         // Ποτά σε ποτήρι
@@ -426,12 +430,16 @@ const translations = {
 
         // Beer
         beer_items: {
+            "Heineken 330ml": "Heineken 330ml",
+            "Amstel Radler lemon 330ml": "Amstel Radler lemon 330ml",
             "Βεργίνα μπουκάλι 500ml": "Vergina beer 500ml",
             "Βεργίνα μπουκάλι weiss 500ml": "Vergina weiss beer 500ml",
             "Άλφα μπουκάλι 500ml": "Alfa beer 500ml",
             "Mythos μπουκάλι 500ml": "Mythos beer 500ml",
             "Fix μπουκάλι 500ml": "Fix beer 500ml",
-            "Άμστελ μπουκάλι 500ml": "Amstel beer 500ml"
+            "Amstel μπουκάλι 500ml": "Amstel beer 500ml",
+            "Βεργίνα red 330ml": "Vergina red 330ml",
+            "Βεργίνα Πορφύρα 330ml": "Vergina Porphyra 330ml"
         },
 
         // Glass drinks
