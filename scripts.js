@@ -276,6 +276,16 @@ function changeLanguage(lang) {
         }
     });
 
+    // Update unavailable items text
+    const unavailableItems = document.querySelectorAll('.menu-item.unavailable');
+    unavailableItems.forEach(item => {
+        if (lang === 'el') {
+            item.setAttribute('data-unavailable-text', 'Μη διαθέσιμο');
+        } else {
+            item.setAttribute('data-unavailable-text', translations[lang].unavailable || 'Unavailable');
+        }
+    });
+
     // Save language preference
     localStorage.setItem('selectedLanguage', lang);
 

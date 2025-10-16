@@ -8,6 +8,7 @@ const translations = {
         back: "Επιστροφή",
         see_flavors: "Δες τις γεύσεις",
         hide_flavors: "Κρύψε τις γεύσεις",
+        unavailable: "Μη διαθέσιμο",
 
         // Κατηγορίες
         coffee: "Καφέδες",
@@ -228,6 +229,7 @@ const translations = {
         back: "Back",
         see_flavors: "See flavors",
         hide_flavors: "Hide flavors",
+        unavailable: "Unavailable",
 
         // Categories
         offers: "Offers",

@@ -309,6 +309,28 @@ header {
     color: #ff0000;
 }
 
+/* Unavailable menu items */
+.menu-item.unavailable {
+    opacity: 0.5;
+    position: relative;
+}
+
+.menu-item.unavailable::after {
+    content: attr(data-unavailable-text);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 0, 0, 0.9);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
 /* Improved syrup card */
 .syrup-card {
     margin-top: 1em;
