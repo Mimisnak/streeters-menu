@@ -196,7 +196,7 @@ const translations = {
             "Nes": "Nes",
             "Frappe": "Frappe",
             "Φίλτρου": "Filter coffee",
-            "Ελληνικός": "Ελληνικός"
+            "Ελληνικός": "Greek Coffee"
         },
 
         // Descriptions English translations
