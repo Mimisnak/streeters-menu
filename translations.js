@@ -54,7 +54,10 @@ const translations = {
             "τριπλός: 2,50€ · τετραπλός: 3,00€": "τριπλός: 2,50€ · τετραπλός: 3,00€",
             "Με αφρόγαλα: 2,00€": "Με αφρόγαλα: 2,00€",
             "Με κρέμα: 2,50€": "Με κρέμα: 2,50€",
-            "καραμέλα: +0,30€ · φουντούκι: +0,30€ · φράουλα: +0,30€": "καραμέλα: +0,30€ · φουντούκι: +0,30€ · φράουλα: +0,30€"
+            "καραμέλα: +0,30€ · φουντούκι: +0,30€ · φράουλα: +0,30€": "καραμέλα: +0,30€ · φουντούκι: +0,30€ · φράουλα: +0,30€",
+            "Ζεστό/Κρύο": "Ζεστό/Κρύο",
+            "Ζεστή/Κρύα": "Ζεστή/Κρύα",
+            "Γέυσεις: Fitness bio (διαίτης με τσουκνίδα, λεμονόχορτο, ιβίσκο & μείγμα βοτάνων mate) · Τσάι μαύρο με σοκολάτα · Τσάι μαύρο με κεράσι · Τσάι μαύρο με τριαντάφυλλο · Πράσινο · Πράσινο οριεντάλ (κανέλα, γαρύφαλλο, βερύκοκο, ginger & πιπεριά) · Φρούτα του δάσους · Μέντα · Μήλο & κανέλα · Φλαμούρι · Χαμομήλι · Χρυσό μήλο (μείγμα βοτάνων, χαμομήλι, παντζάρι, μήλο, κανέλα & αμύγδαλο) · Κόκκινη πλατεία (κομμάτια μήλου, άνθη ιβίσκου, cranberry)": "Γέυσεις: Fitness bio (διαίτης με τσουκνίδα, λεμονόχορτο, ιβίσκο & μείγμα βοτάνων mate) · Τσάι μαύρο με σοκολάτα · Τσάι μαύρο με κεράσι · Τσάι μαύρο με τριαντάφυλλο · Πράσινο · Πράσινο οριεντάλ (κανέλα, γαρύφαλλο, βερύκοκο, ginger & πιπεριά) · Φρούτα του δάσους · Μέντα · Μήλο & κανέλα · Φλαμούρι · Χαμομήλι · Χρυσό μήλο (μείγμα βοτάνων, χαμομήλι, παντζάρι, μήλο, κανέλα & αμύγδαλο) · Κόκκινη πλατεία (κομμάτια μήλου, άνθη ιβίσκου, cranberry)"
         },
 
         // Syrups
@@ -70,10 +73,18 @@ const translations = {
             "Mochaccino": "Mochaccino",
             "Σοκολάτα": "Σοκολάτα",
             "Σοκολάτα Vienoua": "Σοκολάτα Vienoua",
+            "Σοκολάτα λευκή": "Σοκολάτα λευκή",
+            "Κακάο": "Κακάο",
             "Τσάι": "Τσάι",
             "Σπιτική λεμονάδα": "Σπιτική λεμονάδα",
+            "Φυσικός χυμός πορτοκάλι": "Φυσικός χυμός πορτοκάλι",
+            "Χυμός ανάμεικτος": "Χυμός ανάμεικτος",
             "Milkshake σοκολάτα": "Milkshake σοκολάτα",
-            "Φυσικός χυμός πορτοκάλι": "Φυσικός χυμός πορτοκάλι"
+            "Milkshake φράουλα": "Milkshake φράουλα",
+            "Milkshake μπανάνα, καραμέλα & μπισκότο": "Milkshake μπανάνα, καραμέλα & μπισκότο",
+            "Milkshake βανίλια": "Milkshake βανίλια",
+            "Milkshake Ferrero Rocher": "Milkshake Ferrero Rocher",
+            "Cookies cream": "Cookies cream"
         },
 
         // Smoothies
@@ -207,7 +218,10 @@ const translations = {
             "τριπλός: 2,50€ · τετραπλός: 3,00€": "triple: 2,50€ · quadruple: 3,00€",
             "Με αφρόγαλα: 2,00€": "With foam milk: 2,00€",
             "Με κρέμα: 2,50€": "With cream: 2,50€",
-            "καραμέλα: +0,30€ · φουντούκι: +0,30€ · φράουλα: +0,30€": "caramel: +0,30€ · hazelnut: +0,30€ · strawberry: +0,30€"
+            "καραμέλα: +0,30€ · φουντούκι: +0,30€ · φράουλα: +0,30€": "caramel: +0,30€ · hazelnut: +0,30€ · strawberry: +0,30€",
+            "Ζεστό/Κρύο": "Hot/Cold",
+            "Ζεστή/Κρύα": "Hot/Cold",
+            "Γέυσεις: Fitness bio (διαίτης με τσουκνίδα, λεμονόχορτο, ιβίσκο & μείγμα βοτάνων mate) · Τσάι μαύρο με σοκολάτα · Τσάι μαύρο με κεράσι · Τσάι μαύρο με τριαντάφυλλο · Πράσινο · Πράσινο οριεντάλ (κανέλα, γαρύφαλλο, βερύκοκο, ginger & πιπεριά) · Φρούτα του δάσους · Μέντα · Μήλο & κανέλα · Φλαμούρι · Χαμομήλι · Χρυσό μήλο (μείγμα βοτάνων, χαμομήλι, παντζάρι, μήλο, κανέλα & αμύγδαλο) · Κόκκινη πλατεία (κομμάτια μήλου, άνθη ιβίσκου, cranberry)": "Flavors: Fitness bio (diet with nettle, lemongrass, hibiscus & mate herbal blend) · Black tea with chocolate · Black tea with cherry · Black tea with rose · Green · Oriental green (cinnamon, clove, apricot, ginger & pepper) · Forest fruits · Mint · Apple & cinnamon · Linden · Chamomile · Golden apple (herbal blend, chamomile, beetroot, apple, cinnamon & almond) · Red square (apple pieces, hibiscus flowers, cranberry)"
         },
 
         // Syrups
@@ -223,10 +237,18 @@ const translations = {
             "Mochaccino": "Mochaccino",
             "Σοκολάτα": "Hot chocolate",
             "Σοκολάτα Vienoua": "Vienna chocolate",
+            "Σοκολάτα λευκή": "White chocolate",
+            "Κακάο": "Cocoa",
             "Τσάι": "Tea",
             "Σπιτική λεμονάδα": "Homemade lemonade",
+            "Φυσικός χυμός πορτοκάλι": "Fresh orange juice",
+            "Χυμός ανάμεικτος": "Mixed juice",
             "Milkshake σοκολάτα": "Chocolate milkshake",
-            "Φυσικός χυμός πορτοκάλι": "Fresh orange juice"
+            "Milkshake φράουλα": "Strawberry milkshake",
+            "Milkshake μπανάνα, καραμέλα & μπισκότο": "Banana, caramel & biscuit milkshake",
+            "Milkshake βανίλια": "Vanilla milkshake",
+            "Milkshake Ferrero Rocher": "Ferrero Rocher milkshake",
+            "Cookies cream": "Cookies cream"
         },
 
         // Smoothies
