@@ -6,6 +6,8 @@ const translations = {
         menu: "Μενού",
         close: "Κλείσιμο",
         back: "Επιστροφή",
+        see_flavors: "Δες τις γεύσεις",
+        hide_flavors: "Κρύψε τις γεύσεις",
 
         // Κατηγορίες
         coffee: "Καφέδες",
@@ -185,6 +187,8 @@ const translations = {
         menu: "Menu",
         close: "Close",
         back: "Back",
+        see_flavors: "See flavors",
+        hide_flavors: "Hide flavors",
 
         // Categories
         offers: "Offers",
@@ -269,7 +273,7 @@ const translations = {
         // Beverages
         beverages_items: {
             "Mochaccino": "Mochaccino",
-            "Σοκολάτα": "Hot chocolate",
+            "Σοκολάτα": "Chocolate",
             "Σοκολάτα Vienoua": "Vienna chocolate",
             "Σοκολάτα λευκή": "White chocolate",
             "Κακάο": "Cocoa",
