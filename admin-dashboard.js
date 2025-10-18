@@ -151,21 +151,48 @@ function createMenuItemCard(item) {
 
     const itemInfo = document.createElement('div');
     itemInfo.className = 'item-info';
+    
+    let subPriceText = '';
+    if (item.subPrice && item.subPrice.trim()) {
+        subPriceText = `<div style="font-size: 12px; color: #666; margin-top: 5px;">${item.subPrice}</div>`;
+    }
+    
     itemInfo.innerHTML = `
         <h3>${item.name}</h3>
         <span class="category-badge">${categories[item.category] || item.category}</span>
+        ${subPriceText}
     `;
 
     const itemPrice = document.createElement('div');
     itemPrice.className = 'item-price';
+    itemPrice.style.display = 'flex';
+    itemPrice.style.flexDirection = 'column';
+    itemPrice.style.gap = '8px';
+    
+    // Main price input
     const priceInput = document.createElement('input');
     priceInput.type = 'text';
     priceInput.value = item.price;
+    priceInput.placeholder = 'Κύρια τιμή';
     priceInput.addEventListener('input', () => {
         item.price = priceInput.value;
         hasChanges = true;
     });
     itemPrice.appendChild(priceInput);
+    
+    // SubPrice input (for διπλός, τριπλός, etc.)
+    if (item.subPrice !== undefined) {
+        const subPriceInput = document.createElement('input');
+        subPriceInput.type = 'text';
+        subPriceInput.value = item.subPrice || '';
+        subPriceInput.placeholder = 'Επιπλέον τιμές';
+        subPriceInput.style.fontSize = '12px';
+        subPriceInput.addEventListener('input', () => {
+            item.subPrice = subPriceInput.value;
+            hasChanges = true;
+        });
+        itemPrice.appendChild(subPriceInput);
+    }
 
     const itemActions = document.createElement('div');
     itemActions.className = 'item-actions';
@@ -220,6 +247,7 @@ async function saveAllChanges() {
             const docRef = firebaseDB.collection('menu').doc(item.id);
             batch.update(docRef, {
                 price: item.price,
+                subPrice: item.subPrice || '',
                 available: item.available,
                 updatedAt: firebase.firestore.FieldValue.serverTimestamp()
             });
