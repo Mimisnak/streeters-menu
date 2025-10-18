@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Data Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+        tr:hover {
+            background: #f5f5f5;
+        }
+        .category {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+        .coffee { background: #8B4513; }
+        .drinks { background: #FF6347; }
+        .beer { background: #FFD700; color: #333; }
+        .granita { background: #00CED1; }
+        .beverages { background: #FF69B4; }
+        .soft { background: #32CD32; }
+        .baguettes { background: #DEB887; color: #333; }
+        .energy { background: #FF4500; }
+        .smoothies { background: #9370DB; }
+        .available { color: green; font-weight: bold; }
+        .unavailable { color: red; font-weight: bold; }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Firebase Data Verification</h1>
+        <p>Αυτή η σελίδα δείχνει ΟΛΑ τα δεδομένα από το Firebase για να επαληθεύσεις ότι όλα είναι σωστά.</p>
+        
+        <button onclick="loadData()">🔄 Ανανέωση Δεδομένων</button>
+        
+        <div id="loading" class="loading">Πάτα το κουμπί για να φορτώσεις τα δεδομένα...</div>
+        
+        <table id="dataTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Κατηγορία</th>
+                    <th>Όνομα Προϊόντος</th>
+                    <th>Τιμή</th>
+                    <th>Επιπλέον Τιμή</th>
+                    <th>Διαθεσιμότητα</th>
+                    <th>Unique Key</th>
+                </tr>
+            </thead>
+            <tbody id="dataBody">
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+
+    <script>
+        async function loadData() {
+            const loading = document.getElementById('loading');
+            const table = document.getElementById('dataTable');
+            const tbody = document.getElementById('dataBody');
+            
+            loading.textContent = '⏳ Φόρτωση δεδομένων από Firebase...';
+            table.style.display = 'none';
+            tbody.innerHTML = '';
+            
+            try {
+                const snapshot = await firebaseDB.collection('menu').get();
+                
+                if (snapshot.empty) {
+                    loading.textContent = '❌ Δεν βρέθηκαν δεδομένα!';
+                    return;
+                }
+                
+                const items = [];
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    items.push({
+                        ...data,
+                        id: doc.id
+                    });
+                });
+                
+                // Sort by category and name
+                items.sort((a, b) => {
+                    if (a.category !== b.category) {
+                        return a.category.localeCompare(b.category);
+                    }
+                    return a.name.localeCompare(b.name);
+                });
+                
+                // Populate table
+                items.forEach((item, index) => {
+                    const row = document.createElement('tr');
+                    
+                    const uniqueKey = `${item.category}-${item.name}`;
+                    
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td><span class="category ${item.category}">${item.category}</span></td>
+                        <td><strong>${item.name}</strong></td>
+                        <td>${item.price}</td>
+                        <td>${item.subPrice || '-'}</td>
+                        <td class="${item.available ? 'available' : 'unavailable'}">
+                            ${item.available ? '✅ Διαθέσιμο' : '❌ Μη διαθέσιμο'}
+                        </td>
+                        <td><code>${uniqueKey}</code></td>
+                    `;
+                    
+                    tbody.appendChild(row);
+                });
+                
+                loading.textContent = `✅ Φορτώθηκαν ${items.length} προϊόντα επιτυχώς!`;
+                table.style.display = 'table';
+                
+            } catch (error) {
+                loading.textContent = `❌ Σφάλμα: ${error.message}`;
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

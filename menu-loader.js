@@ -48,11 +48,30 @@ function updateMenuPrices(menuData) {
             const nameDiv = itemElement.querySelector('div:first-child');
             if (!nameDiv) return;
 
-            // Get the item name (handle nested structure)
+            // Get the ORIGINAL Greek name (stored in data-original-el by translations.js)
+            // This is crucial for matching with Firebase data
             const nestedDiv = nameDiv.querySelector('div');
-            let itemName = nestedDiv ? nestedDiv.textContent.trim() : nameDiv.textContent.trim();
+            let itemName;
             
-            // Create lookup key
+            if (nestedDiv) {
+                // Complex structure - get original from nested div
+                itemName = nestedDiv.dataset.originalEl || nestedDiv.textContent.trim();
+                // Store it if not already stored
+                if (!nestedDiv.dataset.originalEl) {
+                    nestedDiv.dataset.originalEl = nestedDiv.textContent.trim();
+                    itemName = nestedDiv.textContent.trim();
+                }
+            } else {
+                // Simple structure - get original from main div
+                itemName = nameDiv.dataset.originalEl || nameDiv.textContent.trim();
+                // Store it if not already stored
+                if (!nameDiv.dataset.originalEl) {
+                    nameDiv.dataset.originalEl = nameDiv.textContent.trim();
+                    itemName = nameDiv.textContent.trim();
+                }
+            }
+            
+            // Create lookup key using ORIGINAL Greek name
             const key = `${category}-${itemName}`;
             const data = menuData[key];
             
