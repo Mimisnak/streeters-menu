@@ -150,9 +150,9 @@
             document.getElementById('uploadBtn').disabled = true;
             document.getElementById('checkBtn').disabled = true;
 
-            // Initial menu data extracted from HTML
+            // Complete menu data extracted from HTML
             const menuData = [
-                // Coffee
+                // Coffee (13 items)
                 { category: 'coffee', name: 'Espresso', price: '1,80€', subPrice: 'διπλός: 2,00€', available: true },
                 { category: 'coffee', name: 'Espresso lungo', price: '1,80€', subPrice: 'διπλός: 2,00€', available: true },
                 { category: 'coffee', name: 'Espresso Americano', price: '1,80€', subPrice: 'διπλός: 2,00€', available: true },
@@ -167,7 +167,7 @@
                 { category: 'coffee', name: 'Φίλτρου', price: '2,00€', subPrice: 'καραμέλα: +0,30€ · φουντούκι: +0,30€ · φράουλα: +0,30€', available: true },
                 { category: 'coffee', name: 'Ελληνικός', price: '1,70€', subPrice: 'διπλός: 2,00€', available: true },
                 
-                // Drinks
+                // Drinks (10 items)
                 { category: 'drinks', name: 'Whiskey σε ποτήρι', price: '6,00€', subPrice: '', available: true },
                 { category: 'drinks', name: 'Rum σε ποτήρι', price: '5,50€', subPrice: '', available: true },
                 { category: 'drinks', name: 'Jagermeister σε ποτήρι', price: '5,50€', subPrice: '', available: true },
@@ -179,15 +179,19 @@
                 { category: 'drinks', name: 'Κρασί λευκό', price: '3,00€', subPrice: '', available: true },
                 { category: 'drinks', name: 'Κρασί κόκκινο', price: '3,00€', subPrice: '', available: true },
 
-                // Beer
-                { category: 'beer', name: 'Μύθος 330ml', price: '2,50€', subPrice: '', available: true },
-                { category: 'beer', name: 'Fix 330ml', price: '2,50€', subPrice: '', available: true },
-                { category: 'beer', name: 'Amstel 330ml', price: '2,50€', subPrice: '', available: true },
-                { category: 'beer', name: 'Heineken 330ml', price: '2,50€', subPrice: '', available: true },
-                { category: 'beer', name: 'Kaiser 330ml', price: '2,50€', subPrice: '', available: true },
+                // Beer (10 items)
+                { category: 'beer', name: 'Heineken 330ml', price: '2,00€', subPrice: '', available: true },
+                { category: 'beer', name: 'Amstel Radler lemon 330ml', price: '2,00€', subPrice: '', available: true },
+                { category: 'beer', name: 'Βεργίνα μπουκάλι 500ml', price: '3,00€', subPrice: '', available: true },
+                { category: 'beer', name: 'Βεργίνα μπουκάλι weiss 500ml', price: '3,00€', subPrice: '', available: true },
+                { category: 'beer', name: 'Άλφα μπουκάλι 500ml', price: '3,00€', subPrice: '', available: true },
+                { category: 'beer', name: 'Mythos μπουκάλι 500ml', price: '3,00€', subPrice: '', available: true },
+                { category: 'beer', name: 'Fix μπουκάλι 500ml', price: '3,00€', subPrice: '', available: true },
+                { category: 'beer', name: 'Amstel μπουκάλι 500ml', price: '3,00€', subPrice: '', available: true },
+                { category: 'beer', name: 'Βεργίνα red 330ml', price: '2,50€', subPrice: '', available: false },
                 { category: 'beer', name: 'Βεργίνα Πορφύρα 330ml', price: '2,50€', subPrice: '', available: false },
 
-                // Granita
+                // Granita (9 items)
                 { category: 'granita', name: 'Γρανίτα φράουλα', price: '3,00€', subPrice: '', available: true },
                 { category: 'granita', name: 'Γρανίτα ανανάς', price: '3,00€', subPrice: '', available: true },
                 { category: 'granita', name: 'Γρανίτα μήλο', price: '3,00€', subPrice: '', available: true },
@@ -198,7 +202,71 @@
                 { category: 'granita', name: 'Γρανίτα πεπόνι', price: '3,00€', subPrice: '', available: false },
                 { category: 'granita', name: 'Γρανίτα μπανάνα', price: '3,00€', subPrice: '', available: false },
 
-                // Add more categories as needed...
+                // Beverages (17 items)
+                { category: 'beverages', name: 'Mochaccino', price: '2,20€', subPrice: 'Ζεστό/Κρύο', available: true },
+                { category: 'beverages', name: 'Σοκολάτα', price: '2,50€', subPrice: 'Ζεστή/Κρύα', available: true },
+                { category: 'beverages', name: 'Σοκολάτα Vienoua', price: '2,50€', subPrice: 'Ζεστή/Κρύα', available: true },
+                { category: 'beverages', name: 'Σοκολάτα λευκή', price: '2,50€', subPrice: 'Ζεστή/Κρύα', available: true },
+                { category: 'beverages', name: 'Κακάο', price: '2,00€', subPrice: 'Ζεστό/Κρύο', available: true },
+                { category: 'beverages', name: 'Τσάι', price: '2,00€', subPrice: '', available: true },
+                { category: 'beverages', name: 'Σπιτική λεμονάδα', price: '2,00€', subPrice: '', available: true },
+                { category: 'beverages', name: 'Φυσικός χυμός πορτοκάλι', price: '2,50€', subPrice: '', available: true },
+                { category: 'beverages', name: 'Χυμός ανάμεικτος', price: '2,50€', subPrice: '', available: true },
+                { category: 'beverages', name: 'Χυμός ανάμεικτος ατομικός', price: '1,00€', subPrice: '', available: true },
+                { category: 'beverages', name: 'Milkshake σοκολάτα', price: '3,00€', subPrice: '', available: true },
+                { category: 'beverages', name: 'Milkshake φράουλα', price: '3,00€', subPrice: '', available: true },
+                { category: 'beverages', name: 'Milkshake μπανάνα, καραμέλα & μπισκότο', price: '3,00€', subPrice: '', available: true },
+                { category: 'beverages', name: 'Milkshake βανίλια', price: '3,00€', subPrice: '', available: true },
+                { category: 'beverages', name: 'Milkshake Ferrero Rocher', price: '3,00€', subPrice: '', available: true },
+                { category: 'beverages', name: 'Cookies cream', price: '2,50€', subPrice: '', available: false },
+
+                // Soft drinks (14 items)
+                { category: 'soft', name: 'Coca-Cola 330ml', price: '2,00€', subPrice: '', available: true },
+                { category: 'soft', name: 'Coca-Cola light 330ml', price: '2,00€', subPrice: '', available: true },
+                { category: 'soft', name: 'Coca-Cola zero 330ml', price: '2,00€', subPrice: '', available: true },
+                { category: 'soft', name: 'Fanta πορτοκάλι 330ml', price: '2,00€', subPrice: '', available: true },
+                { category: 'soft', name: 'Fanta λεμονάδα 330ml', price: '2,00€', subPrice: '', available: true },
+                { category: 'soft', name: 'Sprite 330ml', price: '2,00€', subPrice: '', available: true },
+                { category: 'soft', name: 'Σόδα 330ml', price: '1,70€', subPrice: '', available: true },
+                { category: 'soft', name: 'Ice tea λεμόνι 330ml', price: '2,00€', subPrice: '', available: true },
+                { category: 'soft', name: 'Ice tea ροδάκινο 330ml', price: '2,00€', subPrice: '', available: true },
+                { category: 'soft', name: 'Ice tea πράσινο 330ml', price: '2,00€', subPrice: '', available: true },
+                { category: 'soft', name: 'Tuvunu με μέλι 330ml', price: '1,80€', subPrice: '', available: true },
+                { category: 'soft', name: 'Νερό 500ml', price: '0,50€', subPrice: '', available: true },
+                { category: 'soft', name: 'Τσάι Arizona ρόδι 330ml', price: '2,00€', subPrice: '', available: false },
+                { category: 'soft', name: 'Τσάι Arizona πράσινο με μέλι 330ml', price: '2,00€', subPrice: '', available: false },
+
+                // Baguettes (24 items)
+                { category: 'baguettes', name: 'Κουλούρι στρόγγυλο', price: '0,90€', subPrice: '', available: true },
+                { category: 'baguettes', name: 'Κουλούρι Bueno', price: '1,20€', subPrice: '', available: true },
+                { category: 'baguettes', name: 'Κουλούρι πραλίνα φουντουκιού', price: '1,20€', subPrice: '', available: true },
+                { category: 'baguettes', name: 'Μπαγκέτα λευκή γαλοπούλα', price: '2,20€', subPrice: 'Με καπνιστή γαλοπούλα, Philadelphia, σως Streeters & ντομάτα', available: true },
+                { category: 'baguettes', name: 'Μπαγκέτα λευκή ζαμπόν', price: '2,20€', subPrice: 'Με ζαμπόν, gouda, σως Streeters & ντομάτα', available: false },
+                { category: 'baguettes', name: 'Μπαγκέτα λευκή σαλάμι αέρος', price: '2,20€', subPrice: 'Με σαλάμι αέρος, gouda, σως Streeters & ντομάτα', available: false },
+                { category: 'baguettes', name: 'Μπαγκέτα λευκή μανούρι', price: '2,50€', subPrice: 'Με καπνιστή γαλοπούλα, μανούρι, σως Streeters & ντομάτα', available: false },
+                { category: 'baguettes', name: 'Μπαγκέτα λευκή κοτόπουλο', price: '2,50€', subPrice: 'Με στήθος κοτόπουλο, ζαμπόν, gouda, σως Streeters, ντομάτα & αγγούρι', available: false },
+                { category: 'baguettes', name: 'Μπαγκέτα ολικής άλεσης χωριάτικη', price: '2,20€', subPrice: 'Με λευκό τυρί, πάστα ελιάς, ντομάτα, ρίγανη & αγγούρι', available: false },
+                { category: 'baguettes', name: 'Μπαγκέτα ολικής άλεσης γαλοπούλα', price: '2,00€', subPrice: 'Με καπνιστή γαλοπούλα, gouda, σως Streeters & λιαστή ντομάτα', available: false },
+                { category: 'baguettes', name: 'Ciabatta γαλοπούλα & Philadelphia', price: '2,00€', subPrice: '', available: false },
+                { category: 'baguettes', name: 'Ciabatta ωμοπλάτη & Philadelphia', price: '2,00€', subPrice: '', available: false },
+                { category: 'baguettes', name: 'Ciabatta τόνος', price: '2,50€', subPrice: '', available: false },
+                { category: 'baguettes', name: 'Τορτίγια κοτόπουλο', price: '2,50€', subPrice: '', available: false },
+                { category: 'baguettes', name: 'Κρουασάν σοκολάτα', price: '1,50€', subPrice: '', available: true },
+                { category: 'baguettes', name: 'Κρουασάν Bueno', price: '1,50€', subPrice: '', available: true },
+                { category: 'baguettes', name: 'Brioche με πραλίνα Bueno', price: '1,20€', subPrice: '', available: true },
+                { category: 'baguettes', name: 'Brioche με πραλίνα φουντουκιού', price: '1,20€', subPrice: '', available: true },
+
+                // Energy (1 item)
+                { category: 'energy', name: 'Red Bull 250ml', price: '2,50€', subPrice: '', available: true },
+
+                // Smoothies (7 items)
+                { category: 'smoothies', name: 'Smoothie mango, ροδάκινο & ανανάς', price: '3,00€', subPrice: '', available: true },
+                { category: 'smoothies', name: 'Smoothie ανανάς, παπάγια & mango', price: '3,00€', subPrice: '', available: true },
+                { category: 'smoothies', name: 'Smoothie φράουλα, ροδάκινο & mango', price: '3,00€', subPrice: '', available: true },
+                { category: 'smoothies', name: 'Smoothie φράουλα, βατόμουρο & mango', price: '3,00€', subPrice: '', available: true },
+                { category: 'smoothies', name: 'Smoothie φράουλα, μύρτιλο, φραγκοστάφυλλο, μαύρο κεράσι & μούρο', price: '3,00€', subPrice: '', available: true },
+                { category: 'smoothies', name: 'Smoothie σπανάκι, καρότο, πορτοκάλι & ανανάς', price: '3,00€', subPrice: '', available: true },
+                { category: 'smoothies', name: 'Smoothie καρύδα, ανανά & μπανάνα', price: '3,00€', subPrice: '', available: true }
             ];
 
             try {
