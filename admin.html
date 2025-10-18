@@ -191,49 +191,58 @@
     <script src="firebase-config.js"></script>
 
     <script>
-        const loginForm = document.getElementById('loginForm');
-        const errorMessage = document.getElementById('errorMessage');
-        const loading = document.getElementById('loading');
+        // Wait for Firebase to be initialized
+        window.addEventListener('load', () => {
+            const loginForm = document.getElementById('loginForm');
+            const errorMessage = document.getElementById('errorMessage');
+            const loading = document.getElementById('loading');
 
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            // Hide error, show loading
-            errorMessage.classList.remove('show');
-            loading.classList.add('show');
-            loginForm.style.opacity = '0.5';
-
-            try {
-                // Sign in with Firebase
-                await firebaseAuth.signInWithEmailAndPassword(email, password);
-                
-                // Redirect to dashboard
-                window.location.href = 'admin-dashboard.html';
-            } catch (error) {
-                // Show error message
-                let message = 'Σφάλμα σύνδεσης. Παρακαλώ δοκιμάστε ξανά.';
-                
-                if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
-                    message = 'Λάθος email ή password.';
-                } else if (error.code === 'auth/too-many-requests') {
-                    message = 'Πολλές αποτυχημένες προσπάθειες. Δοκιμάστε αργότερα.';
-                }
-
-                errorMessage.textContent = message;
+            if (!window.firebaseAuth) {
+                errorMessage.textContent = 'Firebase initialization error. Please refresh.';
                 errorMessage.classList.add('show');
-                loading.classList.remove('show');
-                loginForm.style.opacity = '1';
+                return;
             }
-        });
 
-        // Check if already logged in
-        firebaseAuth.onAuthStateChanged((user) => {
-            if (user) {
-                window.location.href = 'admin-dashboard.html';
-            }
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                // Hide error, show loading
+                errorMessage.classList.remove('show');
+                loading.classList.add('show');
+                loginForm.style.opacity = '0.5';
+
+                try {
+                    // Sign in with Firebase
+                    await firebaseAuth.signInWithEmailAndPassword(email, password);
+                    
+                    // Redirect to dashboard
+                    window.location.href = 'admin-dashboard.html';
+                } catch (error) {
+                    // Show error message
+                    let message = 'Σφάλμα σύνδεσης. Παρακαλώ δοκιμάστε ξανά.';
+                    
+                    if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+                        message = 'Λάθος email ή password.';
+                    } else if (error.code === 'auth/too-many-requests') {
+                        message = 'Πολλές αποτυχημένες προσπάθειες. Δοκιμάστε αργότερα.';
+                    }
+
+                    errorMessage.textContent = message;
+                    errorMessage.classList.add('show');
+                    loading.classList.remove('show');
+                    loginForm.style.opacity = '1';
+                }
+            });
+
+            // Check if already logged in
+            firebaseAuth.onAuthStateChanged((user) => {
+                if (user) {
+                    window.location.href = 'admin-dashboard.html';
+                }
+            });
         });
     </script>
 </body>

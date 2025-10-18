@@ -9,13 +9,24 @@ const firebaseConfig = {
   measurementId: "G-F70Y5GER8G"
 };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+// Check if Firebase is loaded
+if (typeof firebase === 'undefined') {
+  console.error('Firebase SDK not loaded!');
+} else {
+  // Initialize Firebase
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
 
-// Initialize services
-const auth = firebase.auth();
-const db = firebase.firestore();
-
-// Export for use in other files
-window.firebaseAuth = auth;
-window.firebaseDB = db;
+  // Initialize services
+  const auth = firebase.auth();
+  
+  // Export for use in other files
+  window.firebaseAuth = auth;
+  
+  // Only initialize Firestore if the library is loaded
+  if (firebase.firestore) {
+    const db = firebase.firestore();
+    window.firebaseDB = db;
+  }
+}
