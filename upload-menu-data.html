@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Initial Menu Data</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .log {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+        .warning {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📤 Upload Initial Menu Data</h1>
+        
+        <div class="info">
+            <strong>ℹ️ Πληροφορίες:</strong><br>
+            Αυτή η σελίδα θα ανεβάσει τα αρχικά δεδομένα του menu στο Firebase Firestore.<br>
+            Χρειάζεται να εκτελεστεί <strong>μόνο μία φορά</strong> για να αρχικοποιήσετε τη βάση δεδομένων.
+        </div>
+
+        <div class="warning" id="warningDiv" style="display: none;">
+            ⚠️ <strong>Προειδοποίηση:</strong> Αυτή η ενέργεια θα διαγράψει τα υπάρχοντα δεδομένα και θα τα αντικαταστήσει με τα αρχικά δεδομένα από το HTML.
+        </div>
+
+        <div>
+            <button id="checkBtn" onclick="checkData()">Έλεγχος Δεδομένων</button>
+            <button id="uploadBtn" onclick="uploadData()" disabled>Ανέβασμα Δεδομένων</button>
+            <button onclick="window.location.href='admin.html'">Επιστροφή στο Admin</button>
+        </div>
+
+        <div class="log" id="log"></div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+
+    <script>
+        const log = document.getElementById('log');
+
+        function addLog(message, type = 'info') {
+            const time = new Date().toLocaleTimeString();
+            const className = type === 'success' ? 'success' : type === 'error' ? 'error' : '';
+            log.innerHTML += `<div class="${className}">[${time}] ${message}</div>`;
+            log.scrollTop = log.scrollHeight;
+        }
+
+        // Check if user is authenticated
+        firebaseAuth.onAuthStateChanged((user) => {
+            if (!user) {
+                addLog('❌ Πρέπει να συνδεθείτε πρώτα!', 'error');
+                setTimeout(() => {
+                    window.location.href = 'admin.html';
+                }, 2000);
+            } else {
+                addLog(`✅ Συνδεδεμένος ως: ${user.email}`, 'success');
+            }
+        });
+
+        async function checkData() {
+            addLog('🔍 Έλεγχος υπαρχόντων δεδομένων...');
+            
+            try {
+                const snapshot = await firebaseDB.collection('menu').get();
+                
+                if (snapshot.empty) {
+                    addLog('ℹ️ Δεν βρέθηκαν δεδομένα στο Firestore.', 'success');
+                    addLog('✅ Μπορείτε να ανεβάσετε τα αρχικά δεδομένα!', 'success');
+                    document.getElementById('uploadBtn').disabled = false;
+                } else {
+                    addLog(`⚠️ Βρέθηκαν ${snapshot.size} υπάρχοντα προϊόντα.`, 'error');
+                    document.getElementById('warningDiv').style.display = 'block';
+                    document.getElementById('uploadBtn').disabled = false;
+                }
+            } catch (error) {
+                addLog(`❌ Σφάλμα: ${error.message}`, 'error');
+            }
+        }
+
+        async function uploadData() {
+            if (!confirm('Είστε σίγουροι ότι θέλετε να ανεβάσετε τα δεδομένα;')) {
+                return;
+            }
+
+            addLog('🚀 Ξεκινά η μεταφόρτωση δεδομένων...');
+            document.getElementById('uploadBtn').disabled = true;
+            document.getElementById('checkBtn').disabled = true;
+
+            // Initial menu data extracted from HTML
+            const menuData = [
+                // Coffee
+                { category: 'coffee', name: 'Espresso', price: '1,80€', subPrice: 'διπλός: 2,00€', available: true },
+                { category: 'coffee', name: 'Espresso lungo', price: '1,80€', subPrice: 'διπλός: 2,00€', available: true },
+                { category: 'coffee', name: 'Espresso Americano', price: '1,80€', subPrice: 'διπλός: 2,00€', available: true },
+                { category: 'coffee', name: 'Espresso macchiato', price: '1,90€', subPrice: 'διπλός: 2,20€', available: true },
+                { category: 'coffee', name: 'Φρέντο espresso', price: '2,00€', subPrice: 'τριπλός: 2,50€ · τετραπλός: 3,00€', available: true },
+                { category: 'coffee', name: 'Cappuccino', price: '1,80€', subPrice: 'διπλός: 2,10€', available: true },
+                { category: 'coffee', name: 'Cappuccino latte', price: '1,80€', subPrice: 'διπλός: 2,10€', available: true },
+                { category: 'coffee', name: 'Φρέντο cappuccino', price: 'Με αφρόγαλα: 2,00€', subPrice: 'Με κρέμα: 2,50€', available: true },
+                { category: 'coffee', name: 'Φρέντο cappuccino latte', price: '1,80€', subPrice: 'διπλός: 2,00€', available: true },
+                { category: 'coffee', name: 'Νες', price: '2,00€', subPrice: '', available: true },
+                { category: 'coffee', name: 'Φραπές', price: '2,00€', subPrice: '', available: true },
+                { category: 'coffee', name: 'Φίλτρου', price: '2,00€', subPrice: 'καραμέλα: +0,30€ · φουντούκι: +0,30€ · φράουλα: +0,30€', available: true },
+                { category: 'coffee', name: 'Ελληνικός', price: '1,70€', subPrice: 'διπλός: 2,00€', available: true },
+                
+                // Drinks
+                { category: 'drinks', name: 'Whiskey σε ποτήρι', price: '6,00€', subPrice: '', available: true },
+                { category: 'drinks', name: 'Rum σε ποτήρι', price: '5,50€', subPrice: '', available: true },
+                { category: 'drinks', name: 'Jagermeister σε ποτήρι', price: '5,50€', subPrice: '', available: true },
+                { category: 'drinks', name: 'Tequila σε ποτήρι', price: '5,50€', subPrice: '', available: true },
+                { category: 'drinks', name: 'Gin σε ποτήρι', price: '5,50€', subPrice: '', available: true },
+                { category: 'drinks', name: 'Vodka σε ποτήρι', price: '5,50€', subPrice: '', available: true },
+                { category: 'drinks', name: 'Whiskey special σε ποτήρι', price: '7,00€', subPrice: '', available: true },
+                { category: 'drinks', name: 'Τσίπουρο', price: '3,00€', subPrice: '', available: true },
+                { category: 'drinks', name: 'Κρασί λευκό', price: '3,00€', subPrice: '', available: true },
+                { category: 'drinks', name: 'Κρασί κόκκινο', price: '3,00€', subPrice: '', available: true },
+
+                // Beer
+                { category: 'beer', name: 'Μύθος 330ml', price: '2,50€', subPrice: '', available: true },
+                { category: 'beer', name: 'Fix 330ml', price: '2,50€', subPrice: '', available: true },
+                { category: 'beer', name: 'Amstel 330ml', price: '2,50€', subPrice: '', available: true },
+                { category: 'beer', name: 'Heineken 330ml', price: '2,50€', subPrice: '', available: true },
+                { category: 'beer', name: 'Kaiser 330ml', price: '2,50€', subPrice: '', available: true },
+                { category: 'beer', name: 'Βεργίνα Πορφύρα 330ml', price: '2,50€', subPrice: '', available: false },
+
+                // Granita
+                { category: 'granita', name: 'Γρανίτα φράουλα', price: '3,00€', subPrice: '', available: true },
+                { category: 'granita', name: 'Γρανίτα ανανάς', price: '3,00€', subPrice: '', available: true },
+                { category: 'granita', name: 'Γρανίτα μήλο', price: '3,00€', subPrice: '', available: true },
+                { category: 'granita', name: 'Γρανίτα μάνγκο', price: '3,00€', subPrice: '', available: true },
+                { category: 'granita', name: 'Γρανίτα mix', price: '3,00€', subPrice: '', available: true },
+                { category: 'granita', name: 'Γρανίτα ρόδι', price: '3,00€', subPrice: '', available: true },
+                { category: 'granita', name: 'Γρανίτα καρπούζι', price: '3,00€', subPrice: '', available: false },
+                { category: 'granita', name: 'Γρανίτα πεπόνι', price: '3,00€', subPrice: '', available: false },
+                { category: 'granita', name: 'Γρανίτα μπανάνα', price: '3,00€', subPrice: '', available: false },
+
+                // Add more categories as needed...
+            ];
+
+            try {
+                addLog(`📦 Προετοιμασία ${menuData.length} προϊόντων...`);
+
+                // Clear existing data
+                const snapshot = await firebaseDB.collection('menu').get();
+                if (!snapshot.empty) {
+                    addLog('🗑️ Διαγραφή υπαρχόντων δεδομένων...');
+                    const batch = firebaseDB.batch();
+                    snapshot.docs.forEach(doc => {
+                        batch.delete(doc.ref);
+                    });
+                    await batch.commit();
+                    addLog('✅ Υπάρχοντα δεδομένα διαγράφηκαν.', 'success');
+                }
+
+                // Upload new data
+                addLog('📤 Ανέβασμα νέων δεδομένων...');
+                let count = 0;
+                
+                for (const item of menuData) {
+                    await firebaseDB.collection('menu').add({
+                        ...item,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                    count++;
+                    
+                    if (count % 10 === 0) {
+                        addLog(`⏳ Ανέβηκαν ${count}/${menuData.length} προϊόντα...`);
+                    }
+                }
+
+                addLog(`✅ Επιτυχής μεταφόρτωση ${count} προϊόντων!`, 'success');
+                addLog('🎉 Μπορείτε τώρα να μεταβείτε στο Admin Dashboard!', 'success');
+                
+                document.getElementById('uploadBtn').textContent = 'Ολοκληρώθηκε!';
+            } catch (error) {
+                addLog(`❌ Σφάλμα: ${error.message}`, 'error');
+                document.getElementById('uploadBtn').disabled = false;
+                document.getElementById('checkBtn').disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
