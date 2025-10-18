@@ -151,16 +151,9 @@ function createMenuItemCard(item) {
 
     const itemInfo = document.createElement('div');
     itemInfo.className = 'item-info';
-    
-    let subPriceText = '';
-    if (item.subPrice && item.subPrice.trim()) {
-        subPriceText = `<div style="font-size: 12px; color: #666; margin-top: 5px;">${item.subPrice}</div>`;
-    }
-    
     itemInfo.innerHTML = `
         <h3>${item.name}</h3>
         <span class="category-badge">${categories[item.category] || item.category}</span>
-        ${subPriceText}
     `;
 
     const itemPrice = document.createElement('div');
@@ -168,6 +161,7 @@ function createMenuItemCard(item) {
     itemPrice.style.display = 'flex';
     itemPrice.style.flexDirection = 'column';
     itemPrice.style.gap = '8px';
+    itemPrice.style.minWidth = '200px';
     
     // Main price input
     const priceInput = document.createElement('input');
@@ -180,13 +174,14 @@ function createMenuItemCard(item) {
     });
     itemPrice.appendChild(priceInput);
     
-    // SubPrice input (for διπλός, τριπλός, etc.)
+    // SubPrice input (for διπλός, τριπλός, etc.) - only show if it exists
     if (item.subPrice !== undefined) {
         const subPriceInput = document.createElement('input');
         subPriceInput.type = 'text';
         subPriceInput.value = item.subPrice || '';
-        subPriceInput.placeholder = 'Επιπλέον τιμές';
-        subPriceInput.style.fontSize = '12px';
+        subPriceInput.placeholder = 'π.χ. διπλός: 2,00€';
+        subPriceInput.style.fontSize = '13px';
+        subPriceInput.style.color = '#666';
         subPriceInput.addEventListener('input', () => {
             item.subPrice = subPriceInput.value;
             hasChanges = true;
