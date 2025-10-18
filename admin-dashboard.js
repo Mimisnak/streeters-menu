@@ -174,12 +174,12 @@ function createMenuItemCard(item) {
     });
     itemPrice.appendChild(priceInput);
     
-    // SubPrice input (for διπλός, τριπλός, etc.) - only show if it exists
-    if (item.subPrice !== undefined) {
+    // SubPrice input - only show if there is actual content (not just empty string)
+    if (item.subPrice && item.subPrice.trim().length > 0) {
         const subPriceInput = document.createElement('input');
         subPriceInput.type = 'text';
-        subPriceInput.value = item.subPrice || '';
-        subPriceInput.placeholder = 'π.χ. διπλός: 2,00€';
+        subPriceInput.value = item.subPrice;
+        subPriceInput.placeholder = 'Επιπλέον τιμές';
         subPriceInput.style.fontSize = '13px';
         subPriceInput.style.color = '#666';
         subPriceInput.addEventListener('input', () => {
